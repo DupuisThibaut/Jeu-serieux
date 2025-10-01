@@ -1,19 +1,42 @@
-[gd_scene load_steps=42 format=3 uid="uid://c5swscr85a2bk"]
+[gd_scene load_steps=40 format=3 uid="uid://c5swscr85a2bk"]
 
 [ext_resource type="Texture2D" uid="uid://cdb5577egjgy8" path="res://assets/Textures/texture_parquet.jpeg" id="1_1tdb4"]
 [ext_resource type="Texture2D" uid="uid://c8hqjool44gaf" path="res://assets/Textures/istockphoto-1248324372-612x612.jpg" id="2_62gv7"]
-[ext_resource type="Script" uid="uid://d2agermjgwyrm" path="res://assets/Scripts/voirOrdinateur.gd" id="3_1tdb4"]
-[ext_resource type="Script" uid="uid://cf0gs0kt6qyln" path="res://assets/Scripts/area_3d_onclick.gd" id="3_62gv7"]
 [ext_resource type="PackedScene" uid="uid://b06oairi5w4t8" path="res://assets/Scenes/Toilets/Objets/sink_c.tscn" id="3_eofks"]
 [ext_resource type="PackedScene" uid="uid://c0n5vvvh4bx48" path="res://assets/Scenes/Toilets/Objets/toilet_elongated_b.tscn" id="4_klm8p"]
+[ext_resource type="PackedScene" uid="uid://cdhfn3hvbhteo" path="res://assets/Personnages/character_body_3d.tscn" id="5_1tdb4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
-albedo_texture = ExtResource("1_1tdb4")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3v7ru"]
+albedo_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+metallic = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
+[sub_resource type="BoxMesh" id="BoxMesh_a202f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iypd"]
+albedo_color = Color(0.7559728, 0.0025703746, 0.97052187, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tereu"]
+material = SubResource("StandardMaterial3D_6iypd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
+albedo_color = Color(0.7156987, 0.13846701, 9.62615e-08, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wc5p8"]
+material = SubResource("StandardMaterial3D_i5arm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsk3o"]
+albedo_color = Color(0.46226102, 0.2495088, 0.002145332, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4arys"]
+material = SubResource("StandardMaterial3D_jsk3o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t8nk"]
+albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tdb4"]
+albedo_color = Color(0.34509805, 0.8627451, 0.93333334, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a0tk4"]
-material = SubResource("StandardMaterial3D_noarx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0tk4"]
 albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
@@ -51,8 +74,6 @@ albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lggff"]
 albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_a202f"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0gvp"]
 albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
 
@@ -68,231 +89,264 @@ albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhlwf"]
 albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t8nk"]
-albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0g27"]
 albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
-albedo_color = Color(0.7156987, 0.13846701, 9.62615e-08, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_1tdb4"]
+size = Vector3(2, 0.01, 2)
 
-[sub_resource type="BoxMesh" id="BoxMesh_wc5p8"]
-material = SubResource("StandardMaterial3D_i5arm")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsk3o"]
-albedo_color = Color(0.46226102, 0.2495088, 0.002145332, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4arys"]
-material = SubResource("StandardMaterial3D_jsk3o")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iypd"]
-albedo_color = Color(0.7559728, 0.0025703746, 0.97052187, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_tereu"]
-material = SubResource("StandardMaterial3D_6iypd")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_62gv7"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3v7ru"]
-albedo_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
-metallic = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
+albedo_texture = ExtResource("1_1tdb4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlxy5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j3e5s"]
 albedo_color = Color(1, 1, 0.011764706, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxrcv"]
-albedo_color = Color(0.3314833, 0.792012, 0, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_rf2cd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62gv7"]
+albedo_color = Color(0.49228114, 0.6498734, 0.095531635, 1)
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 2.1579506, 0)
+[node name="Maison" type="Node3D" parent="."]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8061733, 9.109558)
+[node name="Salle de bain" type="Node3D" parent="Maison"]
 
-[node name="Sol" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_jka67")
-mesh = SubResource("PlaneMesh_a0tk4")
+[node name="Sink_C" parent="Maison/Salle de bain" instance=ExtResource("3_eofks")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.45000002, 0, -0.4, 0, -1.7484556e-08, 0.45094204, 0, 0)
 
-[node name="MurCuisine" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.7, 0, 0, 0, -2.1855695e-07, -0.5, 0, 5, -2.1855694e-08, -0.31907424, 0.5, -1)
-material_override = SubResource("StandardMaterial3D_a0tk4")
-mesh = SubResource("PlaneMesh_4xowi")
+[node name="Toilet_Elongated_B2" parent="Maison/Salle de bain" instance=ExtResource("4_klm8p")]
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, 0.55, 0, -0.349)
 
-[node name="MurDouche" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.32, 0, 0, 0, -2.1855695e-07, -0.5, 0, 5, -2.1855694e-08, 0.6816052, 0.5, -1)
-material_override = SubResource("StandardMaterial3D_ealrb")
-mesh = SubResource("PlaneMesh_4xowi")
-
-[node name="FondDouche" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.0927847e-08, 5, -2.1855694e-08, 0, -2.1855695e-07, -0.5, -0.25, -2.1855695e-07, 9.553427e-16, 0.3913862, 0.5, -0.7595378)
-material_override = SubResource("StandardMaterial3D_ealrb")
-mesh = SubResource("PlaneMesh_4xowi")
-
-[node name="FondDouche2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.0927847e-08, -5, 2.1855694e-08, 0, -2.1855695e-07, -0.5, 0.25, -2.1855695e-07, 9.553427e-16, 0.9967035, 0.5, -0.7595378)
-material_override = SubResource("StandardMaterial3D_ealrb")
-mesh = SubResource("PlaneMesh_4xowi")
-
-[node name="MurVitreBas" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -2.1855695e-07, 0.25, 0, -5, -1.0927847e-08, 0, 0.25, 1)
-material_override = SubResource("StandardMaterial3D_wc5p8")
-mesh = SubResource("PlaneMesh_4xowi")
-
-[node name="MurVitreHaut" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -2.1855695e-07, 0.05, 0, -5, -2.1855695e-09, 0, 0.9484774, 1)
-material_override = SubResource("StandardMaterial3D_4arys")
-mesh = SubResource("PlaneMesh_4xowi")
-
-[node name="MurVitreGauche" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, -2.1855695e-07, 0.25, 0, -5, -1.0927847e-08, 0.80038, 0.7092376, 1)
-material_override = SubResource("StandardMaterial3D_tereu")
-mesh = SubResource("PlaneMesh_4xowi")
-
-[node name="MurVitreDroite" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, -2.1855695e-07, 0.25, 0, -5, -1.0927847e-08, -0.800329, 0.7092376, 1)
-material_override = SubResource("StandardMaterial3D_cdqbm")
-mesh = SubResource("PlaneMesh_4xowi")
-
-[node name="Vitre" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.55, 0, 0, 0, -2.1855695e-07, 0.18, 0, -5, -7.86805e-09, -0.0025615692, 0.68691283, 1)
-mesh = SubResource("PlaneMesh_jka67")
-
-[node name="MurChambre" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-08, 5, 0, 4.371139e-08, 9.553427e-15, -0.5, -1, -2.1855695e-07, -2.1855694e-08, -1, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_imku0")
-mesh = SubResource("PlaneMesh_4xowi")
-
-[node name="MurEntrée" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-08, -5, -2.1855694e-08, 0, -2.1855695e-07, 0.5, -1, 2.1855695e-07, 9.553427e-16, 1, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_jsnrv")
-mesh = SubResource("PlaneMesh_4xowi")
-
-[node name="MurMilieu" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.119594e-08, -0.04, -4.371139e-08, 0, -1.7484555e-09, 1, -1.4, 1.7484555e-09, 1.9106855e-15, 0.36871165, 0.5, -0.3)
-material_override = SubResource("StandardMaterial3D_lggff")
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="MurPorteGauche" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, -1.7484555e-09, 1, 0, -0.04, -4.371139e-08, 0.5096982, 0.5, 0.38)
-material_override = SubResource("StandardMaterial3D_s0gvp")
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="MurSeparateurDouche" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.35, 0, 0, 0, -1.7484555e-09, 1, 0, -0.04, -4.371139e-08, 0.56, 0.5, -0.5)
-material_override = SubResource("StandardMaterial3D_vxd74")
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="PorteSDB" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.325, 0, 0, 0, -1.7484555e-09, 0.78, 0, -0.04, -3.409488e-08, 0.8047532, 0.4, 0.38)
-material_override = SubResource("StandardMaterial3D_tcnuu")
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="PorteEntree" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.4206201e-08, -0.04, -3.409488e-08, 0, -1.7484555e-09, 0.78, -0.325, 1.7484555e-09, 1.4903346e-15, 1, 0.39391038, 0.7)
-material_override = SubResource("StandardMaterial3D_tcnuu")
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="MurSeparateurCuisine" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.9, 0, 0, 0, -1.7484555e-09, 1, 0, -0.04, -4.371139e-08, -0.55265826, 0.5, -0.5)
-material_override = SubResource("StandardMaterial3D_tuemg")
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="MurSDBDroite" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.02, 0, 0, 0, -1.7484555e-09, 1, 0, -0.04, -4.371139e-08, 0.9864727, 0.5, 0.38)
-material_override = SubResource("StandardMaterial3D_dhlwf")
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="MurSDBHaut" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, -1.7484555e-09, 0.2, 0, -0.04, -8.742278e-09, 0.72906506, 0.8997684, 0.38)
-material_override = SubResource("StandardMaterial3D_5t8nk")
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="MurCuisineHaut" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, -1.7484555e-09, 0.2, 0, -0.04, -8.742278e-09, 0.11659891, 0.9, -0.5)
-material_override = SubResource("StandardMaterial3D_i0g27")
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="Matelas" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.059797e-08, 1, -8.742278e-09, 0, -4.371139e-08, -0.2, -0.7, -4.371139e-08, 3.821371e-16, -0.4999292, 0.14827216, 0.64838696)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="Lit" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.14722e-08, 1.02, -8.742278e-09, 0, -4.4585615e-08, -0.2, -0.72, -4.4585615e-08, 3.821371e-16, -0.5003309, 0.084200025, 0.6490153)
-mesh = SubResource("BoxMesh_4arys")
-
-[node name="Oreiller" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.6226834e-08, 0.15, -8.742278e-09, 0, -6.5567085e-09, -0.2, -0.6, -6.5567085e-09, 3.821371e-16, -0.8755442, 0.18730366, 0.6490153)
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="VitreBas" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.1855695e-09, 1.2, -2.1855695e-09, 0, -5.2453668e-08, -0.05, -0.05, -5.2453668e-08, 9.553427e-17, 0, 0.5, 1)
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="VitreHaut" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.1855695e-09, 1.2, -2.1855695e-09, 0, -5.2453668e-08, -0.05, -0.05, -5.2453668e-08, 9.553427e-17, 0, 0.8852642, 1)
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="VitreGauche" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.1855695e-09, 0.05, -1.7484556e-08, 0, -2.1855695e-09, -0.4, -0.05, -2.1855695e-09, 7.642742e-16, 0.57495636, 0.7, 1)
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="VitreDroite" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.1855695e-09, 0.05, -1.7484556e-08, 0, -2.1855695e-09, -0.4, -0.05, -2.1855695e-09, 7.642742e-16, -0.5751345, 0.7, 1)
-mesh = SubResource("BoxMesh_a202f")
-
-[node name="BureauHaut" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.059797e-08, 0.35, -8.7422775e-10, 0, -1.5298985e-08, -0.02, -0.7, -1.5298985e-08, 3.821371e-17, -0.8261917, 0.2900301, -0.13180083)
-mesh = SubResource("BoxMesh_tereu")
-
-[node name="Area3D" type="Area3D" parent="BureauHaut"]
-transform = Transform3D(1, 0, 0, 0, 1, 2.220446e-16, 0, 5.684342e-14, 1, 0, 0, 0)
-script = ExtResource("3_62gv7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BureauHaut/Area3D"]
-transform = Transform3D(1, 0, -3.3087225e-24, 0, 1, -4.772498e-24, 0, -5.684342e-14, 1, 0, 0, 0)
-shape = SubResource("BoxShape3D_62gv7")
-script = ExtResource("3_1tdb4")
-
-[node name="SolDouche" type="MeshInstance3D" parent="."]
+[node name="SolDouche" type="MeshInstance3D" parent="Maison/Salle de bain"]
 transform = Transform3D(-2.4041263e-08, 0.65, -8.7422775e-10, 0, -2.8412401e-08, -0.02, -0.55, -2.8412401e-08, 3.821371e-17, 0.693, 0.01, -0.7552692)
 material_override = SubResource("StandardMaterial3D_3v7ru")
 mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
 
-[node name="BureauGauche" type="MeshInstance3D" parent="."]
+[node name="Chambre" type="Node3D" parent="Maison"]
+
+[node name="Bureau" type="Node3D" parent="Maison/Chambre"]
+
+[node name="BureauHaut" type="MeshInstance3D" parent="Maison/Chambre/Bureau"]
+transform = Transform3D(-3.059797e-08, 0.35, -8.7422775e-10, 0, -1.5298985e-08, -0.02, -0.7, -1.5298985e-08, 3.821371e-17, -0.8261917, 0.2900301, -0.13180083)
+mesh = SubResource("BoxMesh_tereu")
+skeleton = NodePath("../../../..")
+
+[node name="BureauGauche" type="MeshInstance3D" parent="Maison/Chambre/Bureau"]
 transform = Transform3D(-4.371139e-09, 0.35, -1.3113417e-08, 0, -1.5298985e-08, -0.3, -0.1, -1.5298985e-08, 5.7320567e-16, -0.8261917, 0.14761923, 0.16685045)
 mesh = SubResource("BoxMesh_tereu")
+skeleton = NodePath("../../../..")
 
-[node name="BureauDroite" type="MeshInstance3D" parent="."]
+[node name="BureauDroite" type="MeshInstance3D" parent="Maison/Chambre/Bureau"]
 transform = Transform3D(-4.371139e-09, 0.35, -1.3113417e-08, 0, -1.5298985e-08, -0.3, -0.1, -1.5298985e-08, 5.7320567e-16, -0.8261917, 0.14761923, -0.42829096)
 mesh = SubResource("BoxMesh_tereu")
+skeleton = NodePath("../../../..")
 
-[node name="Frigo" type="MeshInstance3D" parent="."]
+[node name="Lit" type="Node3D" parent="Maison/Chambre"]
+
+[node name="Matelas" type="MeshInstance3D" parent="Maison/Chambre/Lit"]
+transform = Transform3D(-3.059797e-08, 1, -8.742278e-09, 0, -4.371139e-08, -0.2, -0.7, -4.371139e-08, 3.821371e-16, -0.4999292, 0.14827216, 0.64838696)
+mesh = SubResource("BoxMesh_wc5p8")
+skeleton = NodePath("../../../..")
+
+[node name="Planche" type="MeshInstance3D" parent="Maison/Chambre/Lit"]
+transform = Transform3D(-3.14722e-08, 1.02, -8.742278e-09, 0, -4.4585615e-08, -0.2, -0.72, -4.4585615e-08, 3.821371e-16, -0.5003309, 0.084200025, 0.6490153)
+mesh = SubResource("BoxMesh_4arys")
+skeleton = NodePath("../../../..")
+
+[node name="Oreiller" type="MeshInstance3D" parent="Maison/Chambre/Lit"]
+transform = Transform3D(-2.6226834e-08, 0.15, -8.742278e-09, 0, -6.5567085e-09, -0.2, -0.6, -6.5567085e-09, 3.821371e-16, -0.8755442, 0.18730366, 0.6490153)
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../../..")
+
+[node name="Murs" type="Node3D" parent="Maison"]
+
+[node name="MurSDBHaut" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.5, 0, 0, 0, -1.7484555e-09, 0.2, 0, -0.04, -8.742278e-09, 0.72906506, 0.8997684, 0.38)
+material_override = SubResource("StandardMaterial3D_5t8nk")
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="Plafond" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(1, 0, 0, 0, -5, 8.742278e-08, 0, -4.371139e-07, -1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_1tdb4")
+mesh = SubResource("PlaneMesh_a0tk4")
+skeleton = NodePath("../../..")
+
+[node name="MurCuisine" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.7, 0, 0, 0, -2.1855695e-07, -0.5, 0, 5, -2.1855694e-08, -0.31907424, 0.5, -1)
+material_override = SubResource("StandardMaterial3D_a0tk4")
+mesh = SubResource("PlaneMesh_4xowi")
+skeleton = NodePath("../../..")
+
+[node name="MurDouche" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.32, 0, 0, 0, -2.1855695e-07, -0.5, 0, 5, -2.1855694e-08, 0.6816052, 0.5, -1)
+material_override = SubResource("StandardMaterial3D_ealrb")
+mesh = SubResource("PlaneMesh_4xowi")
+skeleton = NodePath("../../..")
+
+[node name="FondDouche" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(-1.0927847e-08, 5, -2.1855694e-08, 0, -2.1855695e-07, -0.5, -0.25, -2.1855695e-07, 9.553427e-16, 0.3913862, 0.5, -0.7595378)
+material_override = SubResource("StandardMaterial3D_ealrb")
+mesh = SubResource("PlaneMesh_4xowi")
+skeleton = NodePath("../../..")
+
+[node name="FondDouche2" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(-1.0927847e-08, -5, 2.1855694e-08, 0, -2.1855695e-07, -0.5, 0.25, -2.1855695e-07, 9.553427e-16, 0.9967035, 0.5, -0.7595378)
+material_override = SubResource("StandardMaterial3D_ealrb")
+mesh = SubResource("PlaneMesh_4xowi")
+skeleton = NodePath("../../..")
+
+[node name="MurVitreBas" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(1, 0, 0, 0, -2.1855695e-07, 0.25, 0, -5, -1.0927847e-08, 0, 0.25, 1)
+material_override = SubResource("StandardMaterial3D_wc5p8")
+mesh = SubResource("PlaneMesh_4xowi")
+skeleton = NodePath("../../..")
+
+[node name="MurVitreHaut" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(1, 0, 0, 0, -2.1855695e-07, 0.05, 0, -5, -2.1855695e-09, 0, 0.9484774, 1)
+material_override = SubResource("StandardMaterial3D_4arys")
+mesh = SubResource("PlaneMesh_4xowi")
+skeleton = NodePath("../../..")
+
+[node name="MurVitreGauche" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.2, 0, 0, 0, -2.1855695e-07, 0.25, 0, -5, -1.0927847e-08, 0.80038, 0.7092376, 1)
+material_override = SubResource("StandardMaterial3D_tereu")
+mesh = SubResource("PlaneMesh_4xowi")
+skeleton = NodePath("../../..")
+
+[node name="MurVitreDroite" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.2, 0, 0, 0, -2.1855695e-07, 0.25, 0, -5, -1.0927847e-08, -0.800329, 0.7092376, 1)
+material_override = SubResource("StandardMaterial3D_cdqbm")
+mesh = SubResource("PlaneMesh_4xowi")
+skeleton = NodePath("../../..")
+
+[node name="Vitre" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.55, 0, 0, 0, -2.1855695e-07, 0.18, 0, -5, -7.86805e-09, -0.0025615692, 0.68691283, 1)
+mesh = SubResource("PlaneMesh_jka67")
+skeleton = NodePath("../../..")
+
+[node name="MurChambre" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(-4.371139e-08, 5, 0, 4.371139e-08, 9.553427e-15, -0.5, -1, -2.1855695e-07, -2.1855694e-08, -1, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_imku0")
+mesh = SubResource("PlaneMesh_4xowi")
+skeleton = NodePath("../../..")
+
+[node name="MurEntrée" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(-4.371139e-08, -5, -2.1855694e-08, 0, -2.1855695e-07, 0.5, -1, 2.1855695e-07, 9.553427e-16, 1, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_jsnrv")
+mesh = SubResource("PlaneMesh_4xowi")
+skeleton = NodePath("../../..")
+
+[node name="MurMilieu" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(-6.119594e-08, -0.04, -4.371139e-08, 0, -1.7484555e-09, 1, -1.4, 1.7484555e-09, 1.9106855e-15, 0.36871165, 0.5, -0.3)
+material_override = SubResource("StandardMaterial3D_lggff")
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="MurPorteGauche" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.25, 0, 0, 0, -1.7484555e-09, 1, 0, -0.04, -4.371139e-08, 0.5096982, 0.5, 0.38)
+material_override = SubResource("StandardMaterial3D_s0gvp")
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="MurSeparateurDouche" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.35, 0, 0, 0, -1.7484555e-09, 1, 0, -0.04, -4.371139e-08, 0.56, 0.5, -0.5)
+material_override = SubResource("StandardMaterial3D_vxd74")
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="PorteSDB" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.325, 0, 0, 0, -1.7484555e-09, 0.78, 0, -0.04, -3.409488e-08, 0.8047532, 0.4, 0.38)
+material_override = SubResource("StandardMaterial3D_tcnuu")
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="PorteEntree" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(-1.4206201e-08, -0.04, -3.409488e-08, 0, -1.7484555e-09, 0.78, -0.325, 1.7484555e-09, 1.4903346e-15, 1, 0.39391038, 0.7)
+material_override = SubResource("StandardMaterial3D_tcnuu")
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="MurSeparateurCuisine" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.9, 0, 0, 0, -1.7484555e-09, 1, 0, -0.04, -4.371139e-08, -0.55265826, 0.5, -0.5)
+material_override = SubResource("StandardMaterial3D_tuemg")
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="MurSDBDroite" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.02, 0, 0, 0, -1.7484555e-09, 1, 0, -0.04, -4.371139e-08, 0.9864727, 0.5, 0.38)
+material_override = SubResource("StandardMaterial3D_dhlwf")
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="MurCuisineHaut" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(0.5, 0, 0, 0, -1.7484555e-09, 0.2, 0, -0.04, -8.742278e-09, 0.11659891, 0.9, -0.5)
+material_override = SubResource("StandardMaterial3D_i0g27")
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="VitreBas" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(-2.1855695e-09, 1.2, -2.1855695e-09, 0, -5.2453668e-08, -0.05, -0.05, -5.2453668e-08, 9.553427e-17, 0, 0.5, 1)
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="VitreHaut" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(-2.1855695e-09, 1.2, -2.1855695e-09, 0, -5.2453668e-08, -0.05, -0.05, -5.2453668e-08, 9.553427e-17, 0, 0.8852642, 1)
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="VitreGauche" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(-2.1855695e-09, 0.05, -1.7484556e-08, 0, -2.1855695e-09, -0.4, -0.05, -2.1855695e-09, 7.642742e-16, 0.57495636, 0.7, 1)
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="VitreDroite" type="MeshInstance3D" parent="Maison/Murs"]
+transform = Transform3D(-2.1855695e-09, 0.05, -1.7484556e-08, 0, -2.1855695e-09, -0.4, -0.05, -2.1855695e-09, 7.642742e-16, -0.5751345, 0.7, 1)
+mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maison/Murs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012832247, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maison/Murs/StaticBody3D"]
+shape = SubResource("BoxShape3D_1tdb4")
+
+[node name="Sol" type="MeshInstance3D" parent="Maison/Murs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013, 0)
+material_override = SubResource("StandardMaterial3D_jka67")
+mesh = SubResource("PlaneMesh_a0tk4")
+skeleton = NodePath("../../../..")
+
+[node name="Cuisine" type="Node3D" parent="Maison"]
+
+[node name="Frigo" type="MeshInstance3D" parent="Maison/Cuisine"]
 transform = Transform3D(-1.0927847e-08, 0.25, -2.6226834e-08, 0, -1.0927847e-08, -0.6, -0.25, -1.0927847e-08, 1.1464113e-15, -0.87474656, 0.30195165, -0.87406236)
 material_override = SubResource("StandardMaterial3D_wlxy5")
 mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
 
-[node name="PlanTravail" type="MeshInstance3D" parent="."]
+[node name="PlanTravail" type="MeshInstance3D" parent="Maison/Cuisine"]
 transform = Transform3D(-8.742278e-09, 1.1, -1.7484556e-08, 0, -4.8082526e-08, -0.4, -0.2, -4.8082526e-08, 7.642742e-16, -0.202, 0.2, -0.9)
 material_override = SubResource("StandardMaterial3D_j3e5s")
 mesh = SubResource("BoxMesh_a202f")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="Maison"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99, 0)
 
-[node name="Sink_C" parent="." instance=ExtResource("3_eofks")]
-transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.45000002, 0, -0.4, 0, -1.7484556e-08, 0.45094204, 0, 0)
+[node name="CharacterBody3D" parent="." instance=ExtResource("5_1tdb4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015701741, -0.21112514)
+speed = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, -0.001, 0)
-material_override = SubResource("StandardMaterial3D_uxrcv")
-mesh = SubResource("PlaneMesh_rf2cd")
+[node name="CameraPivot" type="Marker3D" parent="."]
 
-[node name="Toilet_Elongated_B2" parent="." instance=ExtResource("4_klm8p")]
-transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, 0.55, 0, -0.349)
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5849565, -0.60014606)
+
+[node name="Terre" type="MeshInstance3D" parent="."]
+transform = Transform3D(1000000, 0, 0, 0, 5000, 0, 0, 0, 1000, 0, -0.1, 0)
+material_override = SubResource("StandardMaterial3D_62gv7")
+mesh = SubResource("PlaneMesh_a0tk4")

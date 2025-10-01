@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://rsr7a4pskn5n"]
+
+[ext_resource type="Script" uid="uid://41sipsvob4a4" path="res://assets/Scripts/resume.gd" id="1_8dlq7"]
+[ext_resource type="Script" uid="uid://da1cm4p6u0f45" path="res://assets/Scripts/planning.gd" id="2_cfb5d"]
+[ext_resource type="Script" uid="uid://r3veusljub31" path="res://assets/Scripts/specialEvent.gd" id="3_2hepo"]
+
+[node name="ComputerMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 80
+
+[node name="Computer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Onglets" type="VBoxContainer" parent="Computer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Computer/Onglets"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Computer/Onglets/HBoxContainer"]
+layout_mode = 2
+text = "Résumé
+"
+script = ExtResource("1_8dlq7")
+
+[node name="Button2" type="Button" parent="Computer/Onglets/HBoxContainer"]
+layout_mode = 2
+text = "Planning
+"
+script = ExtResource("2_cfb5d")
+
+[node name="Button3" type="Button" parent="Computer/Onglets/HBoxContainer"]
+layout_mode = 2
+text = "Evènement spécial
+"
+script = ExtResource("3_2hepo")
+
+[node name="CenterContainer" type="CenterContainer" parent="Computer/Onglets"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Computer/Onglets"]
+layout_mode = 2
+text = "Valider
+"

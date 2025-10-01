@@ -1,12 +1,13 @@
-[gd_scene load_steps=39 format=3 uid="uid://c5swscr85a2bk"]
+[gd_scene load_steps=40 format=3 uid="uid://c5swscr85a2bk"]
 
-[ext_resource type="Texture2D" uid="uid://cdb5577egjgy8" path="res://assets/Textures/texture_parquet.jpeg" id="1_uxrcv"]
-[ext_resource type="Texture2D" uid="uid://c8hqjool44gaf" path="res://assets/Textures/istockphoto-1248324372-612x612.jpg" id="2_rf2cd"]
-[ext_resource type="PackedScene" uid="uid://b06oairi5w4t8" path="res://assets/Scenes/Toilets/Objets/sink_c.tscn" id="4_5crlr"]
-[ext_resource type="PackedScene" uid="uid://c0n5vvvh4bx48" path="res://assets/Scenes/Toilets/Objets/toilet_elongated_b.tscn" id="4_uxrcv"]
+[ext_resource type="Texture2D" uid="uid://cdb5577egjgy8" path="res://assets/Textures/texture_parquet.jpeg" id="1_1tdb4"]
+[ext_resource type="Texture2D" uid="uid://c8hqjool44gaf" path="res://assets/Textures/istockphoto-1248324372-612x612.jpg" id="2_62gv7"]
+[ext_resource type="PackedScene" uid="uid://b06oairi5w4t8" path="res://assets/Scenes/Toilets/Objets/sink_c.tscn" id="3_eofks"]
+[ext_resource type="PackedScene" uid="uid://c0n5vvvh4bx48" path="res://assets/Scenes/Toilets/Objets/toilet_elongated_b.tscn" id="4_klm8p"]
+[ext_resource type="PackedScene" uid="uid://fw15tmc8os1d" path="res://assets/Personnages/P1/Ch38_nonPBR.fbx" id="5_t8tbl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
-albedo_texture = ExtResource("1_uxrcv")
+albedo_texture = ExtResource("1_1tdb4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
 
@@ -19,7 +20,7 @@ albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_4xowi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ealrb"]
-albedo_texture = ExtResource("2_rf2cd")
+albedo_texture = ExtResource("2_62gv7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
 albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
@@ -55,7 +56,7 @@ albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
 albedo_color = Color(0.34561878, 0.86227244, 0.9343805, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxd74"]
-albedo_texture = ExtResource("2_rf2cd")
+albedo_texture = ExtResource("2_62gv7")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcnuu"]
 albedo_color = Color(0, 0, 0, 1)
@@ -267,7 +268,7 @@ mesh = SubResource("BoxMesh_a202f")
 
 [node name="MeshInstance3D18" type="MeshInstance3D" parent="."]
 
-[node name="Sink_C" parent="." instance=ExtResource("4_5crlr")]
+[node name="Sink_C" parent="." instance=ExtResource("3_eofks")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.45000002, 0, -0.4, 0, -1.7484556e-08, 0.45094204, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -275,5 +276,11 @@ transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, -0.001, 0)
 material_override = SubResource("StandardMaterial3D_uxrcv")
 mesh = SubResource("PlaneMesh_rf2cd")
 
-[node name="Toilet_Elongated_B2" parent="." instance=ExtResource("4_uxrcv")]
+[node name="Toilet_Elongated_B2" parent="." instance=ExtResource("4_klm8p")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, 0.55, 0, -0.349)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="Ch38_nonPBR" parent="CharacterBody3D" instance=ExtResource("5_t8tbl")]
+
+[node name="Pivot" type="Node3D" parent="CharacterBody3D"]

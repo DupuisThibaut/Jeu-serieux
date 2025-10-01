@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq0olioeeuy85"]
+[gd_scene load_steps=9 format=3 uid="uid://bq0olioeeuy85"]
 
+[ext_resource type="PackedScene" uid="uid://c5swscr85a2bk" path="res://assets/Scenes/MainScene.tscn" id="1_t0lv0"]
 [ext_resource type="Texture2D" uid="uid://hkasivbmg4pq" path="res://assets/main_menu/title.png" id="1_uxrh4"]
 [ext_resource type="Texture2D" uid="uid://34cvo5tkq1nf" path="res://assets/main_menu/label_continue.png" id="2_xl453"]
 [ext_resource type="Script" uid="uid://q7w8bqwtxgna" path="res://assets/Scripts/start.gd" id="3_t0lv0"]
 [ext_resource type="Texture2D" uid="uid://dd4st87q4358" path="res://assets/main_menu/label_new_game.png" id="3_y52ec"]
 [ext_resource type="Texture2D" uid="uid://cnpren5htj658" path="res://assets/main_menu/label_options.png" id="4_t0lv0"]
 [ext_resource type="Script" uid="uid://dpq0ql4dstqd5" path="res://assets/Scripts/quit.gd" id="5_xl453"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gyspm"]
+viewport_path = NodePath("TextureRect/VueScene2D")
 
 [node name="Main Menu" type="MarginContainer"]
 anchors_preset = 15
@@ -15,10 +19,19 @@ offset_left = -2.0
 offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 80
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 80
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("ViewportTexture_gyspm")
+expand_mode = 1
+
+[node name="VueScene2D" type="SubViewport" parent="TextureRect"]
+
+[node name="Camera3D" type="Camera3D" parent="TextureRect/VueScene2D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.32892922, 0.47555792, -0.12073979)
+
+[node name="Node3D" parent="TextureRect/VueScene2D" instance=ExtResource("1_t0lv0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

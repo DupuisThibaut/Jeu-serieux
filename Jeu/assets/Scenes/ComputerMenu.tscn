@@ -15,10 +15,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 80
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 80
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
@@ -27,9 +23,10 @@ texture = SubResource("ViewportTexture_iups2")
 [node name="VueScene2D" type="SubViewport" parent="TextureRect"]
 
 [node name="Camera3D" type="Camera3D" parent="TextureRect/VueScene2D"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.4265916, 0.47555792, -0.12073979)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3692833, 0.47555792, -0.12073979)
 
 [node name="Node3D" parent="TextureRect/VueScene2D" instance=ExtResource("1_iups2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Computer" type="CenterContainer" parent="."]
 layout_mode = 2

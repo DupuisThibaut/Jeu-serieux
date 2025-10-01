@@ -1,8 +1,8 @@
-StaticBody3D
 CollisionShape3D
+Area3D
+StaticBody3D
 CollisionPolygon3D
 DirectionalLight3D
-Area3D
 Camera3D
 TextureRect
 SubViewport

@@ -1,2 +1,8 @@
 res://assets/Scenes/MainScene.tscn
-res://assets/Personnages/character_body_3d.tscn
+res://assets/Scenes/ComputerMenu.tscn
+res://assets/Scenes/MainMenu.tscn
+res://assets/Scripts/start.gd
+res://assets/Scripts/valide.gd
+res://assets/Scripts/voirOrdinateur.gd
+res://assets/Scripts/area_3d_onclick.gd
+res://assets/Scripts/planning.gd

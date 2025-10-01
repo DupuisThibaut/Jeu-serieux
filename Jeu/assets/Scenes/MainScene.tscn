@@ -1,10 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://c5swscr85a2bk"]
+[gd_scene load_steps=39 format=3 uid="uid://c5swscr85a2bk"]
 
 [ext_resource type="Texture2D" uid="uid://cdb5577egjgy8" path="res://assets/Textures/texture_parquet.jpeg" id="1_1tdb4"]
 [ext_resource type="Texture2D" uid="uid://c8hqjool44gaf" path="res://assets/Textures/istockphoto-1248324372-612x612.jpg" id="2_62gv7"]
 [ext_resource type="PackedScene" uid="uid://b06oairi5w4t8" path="res://assets/Scenes/Toilets/Objets/sink_c.tscn" id="3_eofks"]
 [ext_resource type="PackedScene" uid="uid://c0n5vvvh4bx48" path="res://assets/Scenes/Toilets/Objets/toilet_elongated_b.tscn" id="4_klm8p"]
-[ext_resource type="PackedScene" uid="uid://fw15tmc8os1d" path="res://assets/Personnages/P1/Ch38_nonPBR.fbx" id="5_t8tbl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
 albedo_texture = ExtResource("1_1tdb4")
@@ -278,9 +277,3 @@ mesh = SubResource("PlaneMesh_rf2cd")
 
 [node name="Toilet_Elongated_B2" parent="." instance=ExtResource("4_klm8p")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, 0.55, 0, -0.349)
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-
-[node name="Ch38_nonPBR" parent="CharacterBody3D" instance=ExtResource("5_t8tbl")]
-
-[node name="Pivot" type="Node3D" parent="CharacterBody3D"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://c5swscr85a2bk"]
+[gd_scene load_steps=40 format=3 uid="uid://c5swscr85a2bk"]
 
-[ext_resource type="Texture2D" uid="uid://c40x80lmqqab6" path="res://adhesif-textue-parquet-bois-brut-decoration-adhesive-mur-meuble-decoorouleau-1.jpeg" id="1_uxrcv"]
+[ext_resource type="Texture2D" uid="uid://cdb5577egjgy8" path="res://texture_parquet.jpeg" id="1_uxrcv"]
 [ext_resource type="Texture2D" uid="uid://c8hqjool44gaf" path="res://istockphoto-1248324372-612x612.jpg" id="2_rf2cd"]
-[ext_resource type="PackedScene" path="res://toilet_elongated_b.tscn" id="3_a814b"]
+[ext_resource type="PackedScene" uid="uid://b0nq4tgmeknpl" path="res://toilet_elongated_b.tscn" id="3_a814b"]
 [ext_resource type="PackedScene" uid="uid://b06oairi5w4t8" path="res://sink_c.tscn" id="4_5crlr"]
+[ext_resource type="Material" uid="uid://bwp8xg1vw88jl" path="res://Toilets/Materials/Toilet_Flush_Box.material" id="4_rf2cd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
 albedo_texture = ExtResource("1_uxrcv")
@@ -269,6 +270,7 @@ mesh = SubResource("BoxMesh_a202f")
 
 [node name="Toilet_Elongated_B" parent="." instance=ExtResource("3_a814b")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, 0.55004925, 0, -0.34940726)
+material_override = ExtResource("4_rf2cd")
 
 [node name="Sink_C" parent="." instance=ExtResource("4_5crlr")]
 transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.45000002, 0, -0.4, 0, -1.7484556e-08, 0.45094204, 0, 0)

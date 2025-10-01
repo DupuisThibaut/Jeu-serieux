@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://b0nq4tgmeknpl"]
 
-[ext_resource type="Material" uid="uid://flpn1ryo68w0" path="res://Assets/LoafbrrAssets/Toilets/Materials/Toilet_Elongated.material" id="1_35dpm"]
-[ext_resource type="Material" uid="uid://bwp8xg1vw88jl" path="res://Assets/LoafbrrAssets/Toilets/Materials/Toilet_Flush_Box.material" id="2_ee6ry"]
-[ext_resource type="Material" uid="uid://75tqdxty5v77" path="res://Assets/LoafbrrAssets/Toilets/Materials/Toilet_Elongated_Seat.material" id="3_0t2tn"]
+[ext_resource type="Material" uid="uid://flpn1ryo68w0" path="res://Toilets/Materials/Toilet_Elongated.material" id="1_35dpm"]
+[ext_resource type="Material" uid="uid://bwp8xg1vw88jl" path="res://Toilets/Materials/Toilet_Flush_Box.material" id="2_ee6ry"]
+[ext_resource type="Material" uid="uid://75tqdxty5v77" path="res://Toilets/Materials/Toilet_Elongated_Seat.material" id="3_0t2tn"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ndkp1"]
 _surfaces = [{

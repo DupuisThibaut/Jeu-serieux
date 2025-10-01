@@ -1,3 +1,8 @@
+DirectionalLight3D
+Area3D
+Camera3D
 CollisionShape3D
+TextureRect
+SubViewport
 Node3D
 CharacterBody3D

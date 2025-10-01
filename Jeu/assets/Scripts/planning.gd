@@ -1,29 +1,27 @@
 extends Button
-
-func _ready():
-	set_process_input(true)
 	
+@onready var center_container = $"/root/ComputerMenu/Computer/Onglets/CenterContainer"
+
 func _pressed():
-	for child in get_tree().get_root().get_node("/root/ComputerMenu/Computer/Onglets/CenterContainer").get_children() :
-			child.free()
-	var planning_menuButton_matin = MenuButton.new()
-	var planning_menuButton_apresmidi = MenuButton.new()
-	var planning_menuButton_soir = MenuButton.new()
+	for child in center_container.get_children():
+			child.queue_free()	
+	var vbox = VBoxContainer.new()
+	vbox.alignment = BoxContainer.ALIGNMENT_CENTER
+	vbox.add_theme_constant_override("separation",10)
+	center_container.add_child(vbox)
 	var resume_label = Label.new()
-	planning_menuButton_matin.get_popup().add_item("Réviser")
-	planning_menuButton_matin.get_popup().add_item("Sortir")
-	planning_menuButton_matin.get_popup().add_item("Dormir")
-	planning_menuButton_matin.text = "Créneau du matin"
-	planning_menuButton_apresmidi.get_popup().add_item("Réviser")
-	planning_menuButton_apresmidi.get_popup().add_item("Sortir")
-	planning_menuButton_apresmidi.get_popup().add_item("Dormir")	
-	planning_menuButton_apresmidi.text = "Créneau de l'après midi"
-	planning_menuButton_soir.get_popup().add_item("Réviser")
-	planning_menuButton_soir.get_popup().add_item("Sortir")
-	planning_menuButton_soir.get_popup().add_item("Dormir")	
-	planning_menuButton_soir.text = "Créneau du soir"
-	resume_label.text = "Choisissez le déroulé de votre journée : \n"
-	get_tree().get_root().get_node("/root/ComputerMenu/Computer/Onglets/CenterContainer").add_child(resume_label)
-	get_tree().get_root().get_node("/root/ComputerMenu/Computer/Onglets/CenterContainer").add_child(planning_menuButton_matin)
-	get_tree().get_root().get_node("/root/ComputerMenu/Computer/Onglets/CenterContainer").add_child(planning_menuButton_apresmidi)
-	get_tree().get_root().get_node("/root/ComputerMenu/Computer/Onglets/CenterContainer").add_child(planning_menuButton_soir)
+	resume_label.text = "Choisissez le déroulé de votre journée :"
+	resume_label.add_theme_font_size_override("font_size", 18)
+	vbox.add_child(resume_label)
+	var creneaux = {
+		"Créneau du matin": ["Réviser", "Sortir", "Dormir"],
+		"Créneau de l'après-midi": ["Réviser", "Sortir", "Dormir"],
+		"Créneau du soir": ["Réviser", "Sortir", "Dormir"]
+	}
+	for creneau_text in creneaux.keys():
+		var btn = MenuButton.new()
+		btn.text = creneau_text
+		var popup = btn.get_popup()
+		for option in creneaux[creneau_text]:
+			popup.add_item(option)
+		vbox.add_child(btn)

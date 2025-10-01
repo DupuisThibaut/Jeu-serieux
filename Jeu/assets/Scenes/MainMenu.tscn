@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq0olioeeuy85"]
+[gd_scene load_steps=7 format=3 uid="uid://bq0olioeeuy85"]
 
 [ext_resource type="Texture2D" uid="uid://hkasivbmg4pq" path="res://assets/main_menu/title.png" id="1_uxrh4"]
 [ext_resource type="Texture2D" uid="uid://34cvo5tkq1nf" path="res://assets/main_menu/label_continue.png" id="2_xl453"]
+[ext_resource type="Script" uid="uid://q7w8bqwtxgna" path="res://assets/Scripts/start.gd" id="3_t0lv0"]
 [ext_resource type="Texture2D" uid="uid://dd4st87q4358" path="res://assets/main_menu/label_new_game.png" id="3_y52ec"]
 [ext_resource type="Texture2D" uid="uid://cnpren5htj658" path="res://assets/main_menu/label_options.png" id="4_t0lv0"]
 [ext_resource type="Script" uid="uid://dpq0ql4dstqd5" path="res://assets/Scripts/quit.gd" id="5_xl453"]
@@ -39,6 +40,7 @@ alignment = 1
 layout_mode = 2
 texture = ExtResource("2_xl453")
 stretch_mode = 2
+script = ExtResource("3_t0lv0")
 
 [node name="NewGame" type="TextureRect" parent="HBoxContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2

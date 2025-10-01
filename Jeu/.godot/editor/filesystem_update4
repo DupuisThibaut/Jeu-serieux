@@ -1,2 +1,4 @@
 res://MainScene.tscn
-res://Toilets/Textures/Toilet_Flush_Box/Toilet_Flush_Box.material
+res://toilet_elongated_b.tscn
+res://Toilets/Materials/Toilet_Flush_Box.material
+res://Toilets/Objets/toilet_elongated_b.tscn

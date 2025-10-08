@@ -5,7 +5,7 @@ func _ready():
 	
 func _pressed():
 	_newDay()
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://assets/Scenes/MainScene.tscn")
 
 
@@ -18,3 +18,9 @@ func _newDay():
 	Global.choixMatin = 0
 	Global.choixAprem = 0
 	Global.choixSoir = 0
+	if Global.ChoixES :
+		Global.Statistiques["Santé"] += 30
+		Global.Statistiques["Argent"] -= 45
+	else :
+		Global.Statistiques["Santé"] -= 15
+	

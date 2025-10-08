@@ -1,3 +1,6 @@
+Label
+ColorRect
+HBoxContainer
 CollisionShape3D
 Area3D
 StaticBody3D

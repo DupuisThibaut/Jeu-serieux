@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq0olioeeuy85"]
+[gd_scene load_steps=10 format=3 uid="uid://bq0olioeeuy85"]
 
+[ext_resource type="Script" uid="uid://biea30g3l5ns8" path="res://assets/Scripts/main_menu.gd" id="1_gyspm"]
 [ext_resource type="PackedScene" uid="uid://c5swscr85a2bk" path="res://assets/Scenes/MainScene.tscn" id="1_t0lv0"]
 [ext_resource type="Texture2D" uid="uid://hkasivbmg4pq" path="res://assets/main_menu/title.png" id="1_uxrh4"]
 [ext_resource type="Texture2D" uid="uid://34cvo5tkq1nf" path="res://assets/main_menu/label_continue.png" id="2_xl453"]
@@ -19,6 +20,7 @@ offset_left = -2.0
 offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gyspm")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2

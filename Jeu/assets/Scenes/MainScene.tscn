@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c0n5vvvh4bx48" path="res://assets/Scenes/Toilets/Objets/toilet_elongated_b.tscn" id="4_klm8p"]
 [ext_resource type="PackedScene" uid="uid://cdhfn3hvbhteo" path="res://assets/Personnages/character_body_3d.tscn" id="5_1tdb4"]
 [ext_resource type="Script" uid="uid://dqoba6sm6jcf4" path="res://assets/Scripts/label_Money.gd" id="7_eofks"]
-[ext_resource type="Script" uid="uid://dwg3uewlvtoel" path="res://assets/Scripts/progress_bar_social.gd" id="8_klm8p"]
-[ext_resource type="Script" uid="uid://bnsd8qpma58u8" path="res://assets/Scripts/label_day.gd" id="9_t8tbl"]
-[ext_resource type="Script" uid="uid://ci8y685ot4ign" path="res://assets/Scripts/GameOver.gd" id="10_8ln6a"]
+[ext_resource type="Script" path="res://assets/Scripts/progress_bar_social.gd" id="8_klm8p"]
+[ext_resource type="Script" path="res://assets/Scripts/label_day.gd" id="9_t8tbl"]
+[ext_resource type="Script" path="res://assets/Scripts/GameOver.gd" id="10_8ln6a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3v7ru"]
 albedo_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
@@ -324,17 +324,17 @@ transform = Transform3D(-2.1855695e-09, 0.05, -1.7484556e-08, 0, -2.1855695e-09,
 mesh = SubResource("BoxMesh_a202f")
 skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Maison/Murs"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Maison"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.012832247, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maison/Murs/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maison/StaticBody3D"]
 shape = SubResource("BoxShape3D_1tdb4")
 
-[node name="Sol" type="MeshInstance3D" parent="Maison/Murs/StaticBody3D"]
+[node name="Sol" type="MeshInstance3D" parent="Maison/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013, 0)
 material_override = SubResource("StandardMaterial3D_jka67")
 mesh = SubResource("PlaneMesh_a0tk4")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../..")
 
 [node name="Cuisine" type="Node3D" parent="Maison"]
 
@@ -356,12 +356,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99, 0)
 [node name="CharacterBody3D" parent="." instance=ExtResource("5_1tdb4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015701741, -0.21112514)
 speed = 1
-
-[node name="CameraPivot" type="Marker3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015701741, 0.21112514)
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraPivot"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5849565, -0.60014606)
 
 [node name="Terre" type="MeshInstance3D" parent="."]
 transform = Transform3D(1000000, 0, 0, 0, 5000, 0, 0, 0, 1000, 0, -0.1, 0)

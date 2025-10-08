@@ -7,30 +7,32 @@ extends CharacterBody3D
 
 var target_velocity = Vector3.ZERO
 
-func _physics_process(delta):
-	# We create a local variable to store the input direction.
-	var direction = Vector3.ZERO
+var rot_x = 0
+var rot_y = 0
+var mouse_sensitivity = 0.002
 
-	# We check for each move input and update the direction accordingly.
-	if Input.is_action_pressed("move_right"):
-		direction.x += 1
-	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("move_down"):
-		# Notice how we are working with the vector's x and z axes.
-		# In 3D, the XZ plane is the ground plane.
-		direction.z += 1
-	if Input.is_action_pressed("move_up"):
-		direction.z -= 1
-		
-	if direction != Vector3.ZERO:
-		direction = direction.normalized()
-		# Setting the basis property will affect the rotation of the node.
-		$Pivot.basis = Basis.looking_at(direction)
-		
-	# Ground Velocity
-	target_velocity.x = direction.x * speed
-	target_velocity.z = direction.z * speed
+func _ready():
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _input(event):
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		rotate_y(-event.relative.x * mouse_sensitivity)
+		$Camera3D.rotate_x(event.relative.y * mouse_sensitivity)
+		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+		$RayCast3D.rotate_x(event.relative.y * mouse_sensitivity)
+		$RayCast3D.rotation.x = clampf($RayCast3D.rotation.x, -deg_to_rad(70), deg_to_rad(70))
+		var obj=$RayCast3D.get_collider()
+		if obj:
+			print(obj)
+			#obj.get_node("Sol").mesh.material.albedo_color=Color(125.371, 39.3, 188.354, 1.0)
+			#print(obj.get_node("Sol").mesh.material.albedo_color)
+
+func _physics_process(delta):
+	var input = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var movement_dir = transform.basis * Vector3(input.x, 0, input.y)
+	target_velocity.x = movement_dir.x * speed
+	target_velocity.z = movement_dir.z * speed
 
 	# Vertical Velocity
 	if not is_on_floor(): # If in the air, fall towards the floor. Literally gravity

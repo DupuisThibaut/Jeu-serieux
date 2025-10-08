@@ -1,9 +1,7 @@
-res://assets/Scenes/ComputerMenu.tscn
 res://assets/Scenes/MainScene.tscn
-res://assets/Scripts/label_day.gd
-res://assets/Scripts/label_Money.gd
-res://assets/Scripts/valide.gd
+res://assets/Personnages/character_body_3d.tscn
+res://assets/Personnages/character_body_3d.gd
 res://assets/Scenes/MainMenu.tscn
+res://assets/Scripts/main_menu.gd
 res://assets/Datas/Global.gd
-res://assets/Scripts/specialEvent.gd
-res://assets/Scripts/GameOver.gd
+res://assets/Scripts/label_Money.gd

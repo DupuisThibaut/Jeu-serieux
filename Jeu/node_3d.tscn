@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0udx8h6gpdtu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4xowi"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, -0.5)
+mesh = SubResource("BoxMesh_4xowi")
+skeleton = NodePath("../..")

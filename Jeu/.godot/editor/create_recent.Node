@@ -1,13 +1,14 @@
+Node3D
+Node
+MeshInstance3D
+CollisionShape3D
+StaticBody3D
+Label      - Matches the "text" keyword.
+TextEdit
+Line2D
 Label
 ColorRect
 HBoxContainer
-CollisionShape3D
 Area3D
-StaticBody3D
 CollisionPolygon3D
 DirectionalLight3D
-Camera3D
-TextureRect
-SubViewport
-Node3D
-CharacterBody3D

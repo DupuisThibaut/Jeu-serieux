@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c0n5vvvh4bx48" path="res://assets/Scenes/Toilets/Objets/toilet_elongated_b.tscn" id="4_klm8p"]
 [ext_resource type="PackedScene" uid="uid://cdhfn3hvbhteo" path="res://assets/Personnages/character_body_3d.tscn" id="5_1tdb4"]
 [ext_resource type="Script" uid="uid://dqoba6sm6jcf4" path="res://assets/Scripts/label_Money.gd" id="7_eofks"]
-[ext_resource type="Script" path="res://assets/Scripts/progress_bar_social.gd" id="8_klm8p"]
-[ext_resource type="Script" path="res://assets/Scripts/label_day.gd" id="9_t8tbl"]
-[ext_resource type="Script" path="res://assets/Scripts/GameOver.gd" id="10_8ln6a"]
+[ext_resource type="Script" uid="uid://dwg3uewlvtoel" path="res://assets/Scripts/progress_bar_social.gd" id="8_klm8p"]
+[ext_resource type="Script" uid="uid://bnsd8qpma58u8" path="res://assets/Scripts/label_day.gd" id="9_t8tbl"]
+[ext_resource type="Script" uid="uid://ci8y685ot4ign" path="res://assets/Scripts/GameOver.gd" id="10_8ln6a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3v7ru"]
 albedo_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
@@ -371,7 +371,6 @@ size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 2.34715, 1)
 show_percentage = false
 script = ExtResource("8_klm8p")
-theme_override_colors/font_color = Color(0, 0, 2.34715, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = 801.0

@@ -8,6 +8,8 @@ func _pressed():
 	if(Global.ChoixES != {} and Global.choixMatin != -1 and Global.choixAprem != -1 and Global.choixSoir !=-1) :
 		_newDay()
 		await get_tree().create_timer(1.0).timeout
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		Global.viseur.visible=true
 		get_tree().change_scene_to_file("res://assets/Scenes/MainScene.tscn")
 
 

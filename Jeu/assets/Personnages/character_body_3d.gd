@@ -16,8 +16,17 @@ var testPorteSDB=false
 var porteSDB=true
 var result
 
+#signal changementScene(cell)
+
+#Global.connect("changementScene",_on_changement_scene)
+
 func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Global.changementScene.connect(_scene_changed)
+	Global.viseur=get_node("Viseur")
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#var viseur=get_node("Viseur")
+	#viseur.visible=true
+	#print(viseur)
 	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _input(event):
@@ -46,7 +55,12 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			if testBureau:
+				#changementScene.emit("res://assets/Scenes/ComputerMenu.tscn")
+				#Global.emit_signal("changementScene")
+				Global.viseur.visible=false
 				get_tree().change_scene_to_file("res://assets/Scenes/ComputerMenu.tscn")
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				Global.viseur.visible=false
 			if testPorteSDB:
 				if porteSDB:
 					result["collider"].get_children()[0].rotation[1]=PI/2
@@ -76,3 +90,18 @@ func _physics_process(delta):
 	# Moving the Character
 	velocity = target_velocity
 	move_and_slide()
+	
+func _scene_changed():
+	print("i")
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	var viseur=get_node("Viseur")
+	viseur.visible=false
+	print(viseur.visible)
+	print("j")
+	#if(get_tree().currentScene=="res://assets/Scenes/ComputerMenu.tscn"):
+		#print("i")
+
+
+#func _on_changement_scene(cell: Variant) -> void:
+	#print("i")
+	#pass # Replace with function body.

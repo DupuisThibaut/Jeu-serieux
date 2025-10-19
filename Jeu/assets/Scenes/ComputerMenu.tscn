@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://rsr7a4pskn5n"]
+[gd_scene load_steps=8 format=3 uid="uid://rsr7a4pskn5n"]
 
 [ext_resource type="Script" uid="uid://41sipsvob4a4" path="res://assets/Scripts/resume.gd" id="1_8dlq7"]
+[ext_resource type="Script" uid="uid://cf341ntds1ly3" path="res://assets/Scenes/computer_menu.gd" id="1_cxekh"]
 [ext_resource type="PackedScene" uid="uid://c5swscr85a2bk" path="res://assets/Scenes/MainScene.tscn" id="1_iups2"]
 [ext_resource type="Script" uid="uid://da1cm4p6u0f45" path="res://assets/Scripts/planning.gd" id="2_cfb5d"]
 [ext_resource type="Script" uid="uid://r3veusljub31" path="res://assets/Scripts/specialEvent.gd" id="3_2hepo"]
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cxekh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2

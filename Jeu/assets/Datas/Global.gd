@@ -31,3 +31,9 @@ var ES = [
 		{"name" : "Malade", "Catégorie" : ["Santé"], "Description": "Je suis malade, j'aurais dû faire plus attentation à ma santé...", "Oui": {"Description": "Je devrais rester chez moi et me reposer", "Conséquences":{"Santé" : 20}}, "Non" : {"Description" : "Il faut que j'aille travailler", "Conséquences" : {"Note" : 10, "Santé" : -10}}, "Créneau" : ["Créneau du matin", "Créneau de l'après-midi"]},
 		{"name" : "Gagner de l'argent", "Catégorie" : ["Argent"], "Description" : "Je n'ai plus assez d'argent pour finir le mois, je devrais travailler un peu","Oui" : {"Description" : "Je vais faire du babysitting aujourd'hui", "Conséquences" : {"Argent" : 30}}, "Non" : {"Description" : "Je vais diminuer mes dépenses", "Conséquences":{}}, "Créneau" : ["Créneau du soir"]}
 		]
+
+var viseur
+
+signal changementScene()
+func _on_changement_scene():
+	print("i")

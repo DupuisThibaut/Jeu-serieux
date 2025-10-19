@@ -1,14 +1,14 @@
-Node3D
-Node
+DirectionalLight3D
 MeshInstance3D
+Node3D
+Label
+Node
 CollisionShape3D
 StaticBody3D
 Label      - Matches the "text" keyword.
 TextEdit
 Line2D
-Label
 ColorRect
 HBoxContainer
 Area3D
 CollisionPolygon3D
-DirectionalLight3D

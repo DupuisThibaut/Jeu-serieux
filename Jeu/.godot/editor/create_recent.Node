@@ -1,8 +1,10 @@
+Control
+Node2D
+Label
+Node3D
 MeshInstance3D
 SubViewport
 DirectionalLight3D
-Node3D
-Label
 Node
 CollisionShape3D
 StaticBody3D
@@ -11,4 +13,3 @@ TextEdit
 Line2D
 ColorRect
 HBoxContainer
-Area3D

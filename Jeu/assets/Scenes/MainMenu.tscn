@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq0olioeeuy85"]
+[gd_scene load_steps=9 format=3 uid="uid://bq0olioeeuy85"]
 
 [ext_resource type="Script" uid="uid://biea30g3l5ns8" path="res://assets/Scripts/main_menu.gd" id="1_gyspm"]
 [ext_resource type="PackedScene" uid="uid://c5swscr85a2bk" path="res://assets/Scenes/MainScene.tscn" id="1_t0lv0"]
-[ext_resource type="Texture2D" uid="uid://hkasivbmg4pq" path="res://assets/main_menu/title.png" id="1_uxrh4"]
 [ext_resource type="Texture2D" uid="uid://34cvo5tkq1nf" path="res://assets/main_menu/label_continue.png" id="2_xl453"]
 [ext_resource type="Script" uid="uid://q7w8bqwtxgna" path="res://assets/Scripts/start.gd" id="3_t0lv0"]
 [ext_resource type="Texture2D" uid="uid://dd4st87q4358" path="res://assets/main_menu/label_new_game.png" id="3_y52ec"]
@@ -29,54 +28,58 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="VueScene2D" type="SubViewport" parent="TextureRect"]
+msaa_2d = 3
+screen_space_aa = 2
 
 [node name="Camera3D" type="Camera3D" parent="TextureRect/VueScene2D"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.30097017, 0.47555792, -0.12073979)
-keep_aspect = 0
-fov = 60.0
+transform = Transform3D(-0.7615904, -0.048649877, -0.64623004, 0.020978872, 0.99480486, -0.09961536, 0.6477191, -0.089423284, -0.75661314, 0.08018148, 0.7059661, 13.830359)
+current = true
 size = 0.068
 
 [node name="Node3D" parent="TextureRect/VueScene2D" instance=ExtResource("1_t0lv0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "3 weeks : Mission to success"
+
+[node name="Title" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="Title" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_uxrh4")
-
-[node name="MenuOptions" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="MenuOptions" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Continue" type="TextureRect" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Continue" type="TextureRect" parent="VBoxContainer/MenuOptions"]
 layout_mode = 2
 texture = ExtResource("2_xl453")
 stretch_mode = 2
 script = ExtResource("3_t0lv0")
 
-[node name="NewGame" type="TextureRect" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="NewGame" type="TextureRect" parent="VBoxContainer/MenuOptions"]
 layout_mode = 2
 texture = ExtResource("3_y52ec")
 stretch_mode = 2
 
-[node name="Options" type="TextureRect" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Options" type="TextureRect" parent="VBoxContainer/MenuOptions"]
 layout_mode = 2
 texture = ExtResource("4_t0lv0")
 stretch_mode = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer/MenuOptions"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 8
-
-[node name="Quit" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
 text = "Quit"
+icon_alignment = 1
 script = ExtResource("5_xl453")

@@ -21,13 +21,14 @@ script = ExtResource("1_cxekh")
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
 texture = SubResource("ViewportTexture_iups2")
+stretch_mode = 6
 
 [node name="VueScene2D" type="SubViewport" parent="TextureRect"]
 
 [node name="Camera3D" type="Camera3D" parent="TextureRect/VueScene2D"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.56361914, 0.44322813, -0.1450016)
-projection = 1
-fov = 63.8
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.7700808, 0.45942992, -0.14622663)
+keep_aspect = 0
+fov = 110.0
 size = 0.25
 near = 0.02
 

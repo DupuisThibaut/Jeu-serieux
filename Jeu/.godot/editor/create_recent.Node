@@ -1,5 +1,6 @@
-DirectionalLight3D
 MeshInstance3D
+SubViewport
+DirectionalLight3D
 Node3D
 Label
 Node
@@ -11,4 +12,3 @@ Line2D
 ColorRect
 HBoxContainer
 Area3D
-CollisionPolygon3D

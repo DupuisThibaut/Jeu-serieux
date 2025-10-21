@@ -25,7 +25,11 @@ texture = SubResource("ViewportTexture_iups2")
 [node name="VueScene2D" type="SubViewport" parent="TextureRect"]
 
 [node name="Camera3D" type="Camera3D" parent="TextureRect/VueScene2D"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3692833, 0.47555792, -0.12073979)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.56361914, 0.44322813, -0.1450016)
+projection = 1
+fov = 63.8
+size = 0.25
+near = 0.02
 
 [node name="Node3D" parent="TextureRect/VueScene2D" instance=ExtResource("1_iups2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -65,3 +69,5 @@ layout_mode = 2
 text = "Valider
 "
 script = ExtResource("5_j85lx")
+
+[node name="SubViewport" type="SubViewport" parent="."]

@@ -30,7 +30,8 @@ expand_mode = 1
 [node name="VueScene2D" type="SubViewport" parent="TextureRect"]
 
 [node name="Camera3D" type="Camera3D" parent="TextureRect/VueScene2D"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.32892922, 0.47555792, -0.12073979)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.30097017, 0.47555792, -0.12073979)
+fov = 135.4
 
 [node name="Node3D" parent="TextureRect/VueScene2D" instance=ExtResource("1_t0lv0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

@@ -1,11 +1,3 @@
 res://assets/Scenes/MainScene.tscn
-res://assets/Personnages/character_body_3d.gd
-res://assets/Personnages/character_body_3d.tscn
-res://assets/Datas/Global.gd
-res://assets/Scripts/main_menu.gd
 res://assets/Scenes/MainMenu.tscn
-res://assets/Scripts/start.gd
-res://assets/Scripts/valide.gd
 res://assets/Scenes/ComputerMenu.tscn
-res://assets/Scripts/resume.gd
-res://assets/Scenes/computer_menu.gd

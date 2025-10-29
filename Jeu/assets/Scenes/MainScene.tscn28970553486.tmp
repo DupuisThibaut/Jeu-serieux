@@ -1,7 +1,6 @@
-[gd_scene load_steps=106 format=3 uid="uid://c5swscr85a2bk"]
+[gd_scene load_steps=105 format=3 uid="uid://c5swscr85a2bk"]
 
 [ext_resource type="Texture2D" uid="uid://cdb5577egjgy8" path="res://assets/Textures/texture_parquet.jpeg" id="1_1tdb4"]
-[ext_resource type="Script" uid="uid://bb60q8swwk26c" path="res://assets/Scenes/main_scene.gd" id="1_fx8xi"]
 [ext_resource type="Texture2D" uid="uid://c8hqjool44gaf" path="res://assets/Textures/istockphoto-1248324372-612x612.jpg" id="2_62gv7"]
 [ext_resource type="Script" uid="uid://cf0gs0kt6qyln" path="res://assets/Scripts/area_3d_onclick.gd" id="3_62gv7"]
 [ext_resource type="PackedScene" uid="uid://b06oairi5w4t8" path="res://assets/Scenes/Toilets/Objets/sink_c.tscn" id="3_eofks"]
@@ -269,7 +268,6 @@ albedo_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
 
 [node name="Scene" type="Node3D"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
-script = ExtResource("1_fx8xi")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_l2yev")

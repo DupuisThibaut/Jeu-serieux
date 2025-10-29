@@ -1,15 +1,15 @@
+Camera2D
+Camera3D
+Node
+AnimationPlayer
+ColorRect
+CanvasLayer
+Area3D
+TextEdit
+TextureRect
+Node3D
+TabContainer
 Control
+WorldEnvironment
 Node2D
 Label
-Node3D
-MeshInstance3D
-SubViewport
-DirectionalLight3D
-Node
-CollisionShape3D
-StaticBody3D
-Label      - Matches the "text" keyword.
-TextEdit
-Line2D
-ColorRect
-HBoxContainer

@@ -33,6 +33,15 @@ var ES = [
 		]
 
 var viseur
+var interaction
+var quitter
+
+var cameraPerso
+func cam():
+	cameraPerso.make_current()
+
+@onready
+var cameraOrdi=get_node("CameraOrdi")
 
 signal changementScene()
 func _on_changement_scene():

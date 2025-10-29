@@ -1,6 +1,6 @@
 extends Button
 	
-@onready var center_container = $"/root/ComputerMenu/Computer/Onglets/CenterContainer"
+@onready var center_container = $"/root/Scene/Maison/Chambre/Ordinateur/SubViewport/Computer/Onglets/CenterContainer"
 var creneaux = {
 	"Créneau du matin": Global.Actions,
 	"Créneau de l'après-midi": Global.Actions,

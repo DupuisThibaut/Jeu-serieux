@@ -15,6 +15,7 @@ var testBureau=false
 var testPorteSDB=false
 var porteSDB=true
 var result
+var travail=false
 
 #signal changementScene(cell)
 
@@ -23,6 +24,11 @@ var result
 func _ready():
 	Global.changementScene.connect(_scene_changed)
 	Global.viseur=get_node("Viseur")
+	Global.interaction=get_node("Interaction")
+	Global.interaction.visible=false
+	Global.quitter=get_node("Quitter")
+	Global.quitter.visible=false
+	Global.cameraPerso=$Camera3D
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	#var viseur=get_node("Viseur")
 	#viseur.visible=true
@@ -44,24 +50,34 @@ func _input(event):
 		result = space_state.intersect_ray(query)
 		testBureau=false
 		testPorteSDB=false
+		Global.interaction.visible=false
 		if result:
-			if(result["collider"].get_children()[0].name=="BureauHaut"):
+			if(result["collider"].get_children()[0].name=="BureauHaut" || result["collider"].get_parent().get_parent().name=="Ordinateur"):
 				testBureau=true
+				Global.interaction.visible=true
 			elif(result["collider"].get_children()[0].name=="NodePorteSDB"):
-				print(result["collider"].get_children())
 				testPorteSDB=true
-			else:
-				print("i")
+				Global.interaction.visible=true
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			if testBureau:
 				#changementScene.emit("res://assets/Scenes/ComputerMenu.tscn")
 				#Global.emit_signal("changementScene")
 				Global.viseur.visible=false
-				get_tree().change_scene_to_file("res://assets/Scenes/ComputerMenu.tscn")
+				Global.interaction.visible=false
+				#get_tree().change_scene_to_file("res://assets/Scenes/ComputerMenu.tscn")
+				#get_parent().get_node("CameraOrdi").make_current()
+				SceneTransition.change_camera(get_parent().get_node("CameraOrdi"),1)
+				#CameraTransition.transition_camera3D(get_tree().get_root().get_node("/root/Scene/CharacterBody3D/Camera3D"),get_parent().get_node("CameraOrdi"))
+				await get_tree().create_timer(0.5).timeout
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 				Global.viseur.visible=false
+				Global.interaction.visible=false
+				testBureau=false
+				travail=true
+				Global.quitter.visible=true
 			if testPorteSDB:
+				Global.interaction.visible=false
 				if porteSDB:
 					result["collider"].get_children()[0].rotation[1]=PI/2
 					result["collider"].get_children()[1].position=Vector3(0.646,0.4,0.22)
@@ -74,8 +90,13 @@ func _input(event):
 					result["collider"].get_children()[1].rotation[1]=0
 					porteSDB=true
 					testPorteSDB=false
-					
-				
+	if event is InputEventKey:
+		if event.pressed and event.keycode==KEY_ESCAPE:
+			if travail:
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				Global.viseur.visible=true
+				Global.quitter.visible=false
+				SceneTransition.change_camera(get_tree().get_root().get_node("/root/Scene/CharacterBody3D/Camera3D"),1)
 
 func _physics_process(delta):
 	var input = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -92,12 +113,9 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _scene_changed():
-	print("i")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	var viseur=get_node("Viseur")
 	viseur.visible=false
-	print(viseur.visible)
-	print("j")
 	#if(get_tree().currentScene=="res://assets/Scenes/ComputerMenu.tscn"):
 		#print("i")
 

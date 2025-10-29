@@ -7,10 +7,14 @@ func _pressed():
 	print(Global.ChoixES, Global.choixMatin, Global.choixAprem, Global.choixSoir)
 	if(Global.ChoixES != {} and Global.choixMatin != -1 and Global.choixAprem != -1 and Global.choixSoir !=-1) :
 		_newDay()
-		await get_tree().create_timer(1.0).timeout
+		SceneTransition.change_scene("res://assets/Scenes/MainScene.tscn",1)
+		await get_tree().create_timer(0.8).timeout
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		Global.viseur.visible=true
-		get_tree().change_scene_to_file("res://assets/Scenes/MainScene.tscn")
+		get_tree().get_root().get_node("/root/Scene/HBoxContainer/Label_Day").change()
+		get_tree().get_root().get_node("/root/Scene/HBoxContainer/Label_Money").change()
+		#get_tree().get_root().get_node("/root/Scene/CharacterBody3D/Camera3D").make_current()
+		#get_tree().change_scene_to_file("res://assets/Scenes/MainScene.tscn")
 
 
 func _newDay():

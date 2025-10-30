@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ck0hmxgfrq7bp"]
 
-[ext_resource type="Script" uid="uid://cpn4f0qboeowa" path="res://camera_transition.gd" id="1_x4rje"]
+[ext_resource type="Script" uid="uid://cpn4f0qboeowa" path="res://assets/Scripts/camera_transition.gd" id="1_x4rje"]
 
 [node name="CameraTransition" type="Node"]
 script = ExtResource("1_x4rje")

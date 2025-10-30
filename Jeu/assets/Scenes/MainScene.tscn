@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://c5swscr85a2bk"]
+[gd_scene load_steps=107 format=3 uid="uid://c5swscr85a2bk"]
 
 [ext_resource type="Texture2D" uid="uid://cdb5577egjgy8" path="res://assets/Textures/texture_parquet.jpeg" id="1_1tdb4"]
 [ext_resource type="Script" uid="uid://bb60q8swwk26c" path="res://assets/Scenes/main_scene.gd" id="1_fx8xi"]
@@ -9,11 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c0n5vvvh4bx48" path="res://assets/Scenes/Toilets/Objets/toilet_elongated_b.tscn" id="4_klm8p"]
 [ext_resource type="PackedScene" uid="uid://cdhfn3hvbhteo" path="res://assets/Personnages/character_body_3d.tscn" id="5_1tdb4"]
 [ext_resource type="Script" uid="uid://dphp2axy5wqqk" path="res://assets/Scenes/computer.gd" id="5_p4kyt"]
-[ext_resource type="Script" uid="uid://41sipsvob4a4" path="res://assets/Scripts/resume.gd" id="5_smnvw"]
-[ext_resource type="Script" uid="uid://r3veusljub31" path="res://assets/Scripts/specialEvent.gd" id="6_p4kyt"]
 [ext_resource type="Script" uid="uid://dqoba6sm6jcf4" path="res://assets/Scripts/label_Money.gd" id="7_eofks"]
-[ext_resource type="Script" uid="uid://da1cm4p6u0f45" path="res://assets/Scripts/planning.gd" id="7_fx8xi"]
-[ext_resource type="Script" uid="uid://3o7efdcsc5h4" path="res://assets/Scripts/valide.gd" id="8_57rnh"]
+[ext_resource type="PackedScene" uid="uid://rsr7a4pskn5n" path="res://assets/Scenes/ComputerMenu.tscn" id="7_lv7ag"]
 [ext_resource type="Script" uid="uid://dwg3uewlvtoel" path="res://assets/Scripts/progress_bar_social.gd" id="8_klm8p"]
 [ext_resource type="Script" uid="uid://bnsd8qpma58u8" path="res://assets/Scripts/label_day.gd" id="9_t8tbl"]
 [ext_resource type="Script" uid="uid://ci8y685ot4ign" path="res://assets/Scripts/GameOver.gd" id="10_8ln6a"]
@@ -32,9 +29,13 @@ sky = SubResource("Sky_ajoha")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_8ln6a"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lv7ag"]
+load_path = "res://.godot/imported/test.jpg-74838fd7989d5e9c2e0c7cb4027e7b8c.s3tc.ctex"
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57rnh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87ito"]
+albedo_texture = SubResource("CompressedTexture2D_lv7ag")
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ln6a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnmr3"]
 albedo_color = Color(0.49019608, 0.49019608, 0.49019608, 1)
@@ -222,6 +223,24 @@ albedo_color = Color(1, 1, 0.011764706, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62gv7"]
 albedo_color = Color(0.49228114, 0.6498734, 0.095531635, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv7ag"]
+bg_color = Color(0.6, 0.6, 0.6, 0.49019608)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smnvw"]
+bg_color = Color(1.92523e-07, 0.6344058, 0.9611216, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_p4kyt"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_lv7ag")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_smnvw")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mngr"]
 albedo_color = Color(1, 0, 0, 1)
 
@@ -284,8 +303,8 @@ shadow_normal_bias = 1.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Exterieur"]
 transform = Transform3D(50, 0, 0, 0, 20, 0, 0, 0, 50, 51.123787, 14.415535, 75.0014)
+material_override = SubResource("StandardMaterial3D_87ito")
 mesh = SubResource("BoxMesh_8ln6a")
-surface_material_override/0 = SubResource("StandardMaterial3D_57rnh")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Exterieur"]
 transform = Transform3D(10, 0, 0, 0, 15, 0, 0, 0, 10, 72.4984, 6.9032173, 56.42318)
@@ -418,54 +437,9 @@ surface_material_override/7 = SubResource("StandardMaterial3D_p4kyt")
 shape = SubResource("ConcavePolygonShape3D_p4kyt")
 
 [node name="SubViewport" type="SubViewport" parent="Maison/Chambre/Ordinateur"]
-size = Vector2i(707, 470)
+size = Vector2i(1152, 648)
 
-[node name="Computer" type="CenterContainer" parent="Maison/Chambre/Ordinateur/SubViewport"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -153.5
-offset_top = -35.0
-offset_right = 153.50146
-offset_bottom = 35.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Onglets" type="VBoxContainer" parent="Maison/Chambre/Ordinateur/SubViewport/Computer"]
-layout_mode = 2
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Maison/Chambre/Ordinateur/SubViewport/Computer/Onglets"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="Maison/Chambre/Ordinateur/SubViewport/Computer/Onglets/HBoxContainer"]
-layout_mode = 2
-text = "Résumé
-"
-script = ExtResource("5_smnvw")
-
-[node name="Button3" type="Button" parent="Maison/Chambre/Ordinateur/SubViewport/Computer/Onglets/HBoxContainer"]
-layout_mode = 2
-text = "Evènement spécial
-"
-script = ExtResource("6_p4kyt")
-
-[node name="Button2" type="Button" parent="Maison/Chambre/Ordinateur/SubViewport/Computer/Onglets/HBoxContainer"]
-layout_mode = 2
-text = "Planning
-"
-script = ExtResource("7_fx8xi")
-
-[node name="CenterContainer" type="CenterContainer" parent="Maison/Chambre/Ordinateur/SubViewport/Computer/Onglets"]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="Maison/Chambre/Ordinateur/SubViewport/Computer/Onglets"]
-layout_mode = 2
-text = "Valider
-"
-script = ExtResource("8_57rnh")
+[node name="ComputerMenu" parent="Maison/Chambre/Ordinateur/SubViewport" instance=ExtResource("7_lv7ag")]
 
 [node name="Quad" type="MeshInstance3D" parent="Maison/Chambre/Ordinateur"]
 transform = Transform3D(-1.1364962e-07, 0, 0.8000001, 0, 1.6000001, 0, -2.6, 0, -3.4969112e-08, 0.37940598, 1.4914131, 1.1920929e-07)
@@ -769,12 +743,13 @@ offset_top = 58.0
 offset_right = 1131.0
 offset_bottom = 85.0
 size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 2.34715, 1)
+tooltip_text = "Social"
+theme = SubResource("Theme_p4kyt")
 show_percentage = false
 script = ExtResource("8_klm8p")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 801.0
+offset_left = 864.0
 offset_top = 14.0
 offset_right = 1132.0
 offset_bottom = 54.0
@@ -783,11 +758,13 @@ theme_override_constants/separation = 50
 [node name="Label_Money" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+text = "Argent : 150 €"
 script = ExtResource("7_eofks")
 
 [node name="Label_Day" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+text = "Lundi (Jour 5)"
 script = ExtResource("9_t8tbl")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -907,3 +884,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2g5cg")
 
 [node name="CameraOrdi" type="Camera3D" parent="."]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -0.74524736, 0.46343458, -0.14651504)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1016.0
+offset_top = 60.0
+offset_right = 1065.0
+offset_bottom = 83.0
+text = "Social "

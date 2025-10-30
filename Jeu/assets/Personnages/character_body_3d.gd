@@ -27,7 +27,7 @@ func _ready():
 	Global.interaction=get_node("Interaction")
 	Global.interaction.visible=false
 	Global.quitter=get_node("Quitter")
-	Global.quitter.visible=false
+	Global.quitter.visible=true
 	Global.cameraPerso=$Camera3D
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	#var viseur=get_node("Viseur")
@@ -95,8 +95,10 @@ func _input(event):
 			if travail:
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 				Global.viseur.visible=true
-				Global.quitter.visible=false
+				travail = false
 				SceneTransition.change_camera(get_tree().get_root().get_node("/root/Scene/CharacterBody3D/Camera3D"),1)
+			else :
+				get_tree().quit()
 
 func _physics_process(delta):
 	var input = Input.get_vector("move_left", "move_right", "move_up", "move_down")

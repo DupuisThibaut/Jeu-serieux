@@ -1,15 +1,55 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq0olioeeuy85"]
+[gd_scene load_steps=14 format=3 uid="uid://bq0olioeeuy85"]
 
 [ext_resource type="Script" uid="uid://biea30g3l5ns8" path="res://assets/Scripts/main_menu.gd" id="1_gyspm"]
 [ext_resource type="PackedScene" uid="uid://c5swscr85a2bk" path="res://assets/Scenes/MainScene.tscn" id="1_t0lv0"]
-[ext_resource type="Texture2D" uid="uid://34cvo5tkq1nf" path="res://assets/main_menu/label_continue.png" id="2_xl453"]
 [ext_resource type="Script" uid="uid://q7w8bqwtxgna" path="res://assets/Scripts/start.gd" id="3_t0lv0"]
-[ext_resource type="Texture2D" uid="uid://dd4st87q4358" path="res://assets/main_menu/label_new_game.png" id="3_y52ec"]
-[ext_resource type="Texture2D" uid="uid://cnpren5htj658" path="res://assets/main_menu/label_options.png" id="4_t0lv0"]
+[ext_resource type="FontFile" uid="uid://dsa0i34ay2r3e" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="4_t0lv0"]
 [ext_resource type="Script" uid="uid://dpq0ql4dstqd5" path="res://assets/Scripts/quit.gd" id="5_xl453"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gyspm"]
 viewport_path = NodePath("TextureRect/VueScene2D")
+
+[sub_resource type="Theme" id="Theme_gyspm"]
+default_font = ExtResource("4_t0lv0")
+Label/fonts/font = ExtResource("4_t0lv0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xl453"]
+bg_color = Color(0, 0, 0, 0.39215687)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y52ec"]
+bg_color = Color(0, 0, 0, 0.39215687)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_t0lv0"]
+default_font = ExtResource("4_t0lv0")
+Button/styles/normal = SubResource("StyleBoxFlat_xl453")
+Button/styles/pressed = SubResource("StyleBoxFlat_y52ec")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0lv0"]
+bg_color = Color(0, 0, 0, 0.39215687)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyspm"]
+bg_color = Color(0, 0, 0, 0.39215687)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_gjgbf"]
+default_font = ExtResource("4_t0lv0")
+Button/styles/normal = SubResource("StyleBoxFlat_t0lv0")
+Button/styles/pressed = SubResource("StyleBoxFlat_gyspm")
 
 [node name="Main Menu" type="MarginContainer"]
 anchors_preset = 15
@@ -39,47 +79,41 @@ size = 0.068
 [node name="Node3D" parent="TextureRect/VueScene2D" instance=ExtResource("1_t0lv0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 15.0
+offset_right = 1151.0
+offset_bottom = 103.0
+theme = SubResource("Theme_gyspm")
 theme_override_font_sizes/font_size = 64
 text = "3 weeks : Mission to success"
+horizontal_alignment = 1
 
-[node name="Title" type="TextureRect" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="MenuOptions" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="Continue" type="TextureRect" parent="VBoxContainer/MenuOptions"]
-layout_mode = 2
-texture = ExtResource("2_xl453")
-stretch_mode = 2
+[node name="Jouer" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 200.0
+offset_right = 700.0
+offset_bottom = 280.0
+theme = SubResource("Theme_t0lv0")
+theme_override_font_sizes/font_size = 52
+text = "Jouer"
 script = ExtResource("3_t0lv0")
 
-[node name="NewGame" type="TextureRect" parent="VBoxContainer/MenuOptions"]
-layout_mode = 2
-texture = ExtResource("3_y52ec")
-stretch_mode = 2
-
-[node name="Options" type="TextureRect" parent="VBoxContainer/MenuOptions"]
-layout_mode = 2
-texture = ExtResource("4_t0lv0")
-stretch_mode = 2
-
-[node name="Quit" type="Button" parent="VBoxContainer/MenuOptions"]
-layout_mode = 2
+[node name="Quit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 350.0
+offset_right = 700.0
+offset_bottom = 430.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 32
+theme = SubResource("Theme_gjgbf")
+theme_override_font_sizes/font_size = 52
 text = "Quit"
 icon_alignment = 1
 script = ExtResource("5_xl453")

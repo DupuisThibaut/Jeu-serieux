@@ -25,6 +25,20 @@ func _pressed():
 		hbox.alignment = BoxContainer.ALIGNMENT_CENTER
 		hbox.add_theme_constant_override("separation",10)
 		var btnOui = Button.new()
+		btnOui.add_theme_color_override("font_color", Color.WHITE)
+		btnOui.add_theme_color_override("font_color_hover", Color.BLACK) 
+		var style = StyleBoxFlat.new()
+		style.bg_color = Color(0.2, 0.4, 1)
+		style.border_radius_top_left = 10
+		style.border_radius_top_right = 10
+		style.border_radius_bottom_left = 10
+		style.border_radius_bottom_right = 10
+		style.border_width = 2
+		style.border_color = Color(0,0,0)
+		btnOui.add_theme_stylebox_override("normal", style)
+		var style_hover = style.duplicate()
+		style_hover.bg_color = Color(0.3, 0.5, 1)
+		btnOui.add_theme_stylebox_override("hover", style_hover)
 		btnOui.text = es["Oui"]["Description"]
 		btnOui.pressed.connect(func():
 			Global.ChoixES = es["Oui"]
@@ -37,6 +51,10 @@ func _pressed():
 		)
 		hbox.add_child(btnOui)
 		var btnNon = Button.new()
+		btnNon.add_theme_color_override("font_color", Color.WHITE)
+		btnNon.add_theme_color_override("font_color_hover", Color.BLACK) 
+		btnNon.add_theme_stylebox_override("normal", style)
+		btnNon.add_theme_stylebox_override("hover", style_hover)
 		btnNon.text = es["Non"]["Description"]
 		btnNon.pressed.connect(func():
 			Global.ChoixES = es["Non"]

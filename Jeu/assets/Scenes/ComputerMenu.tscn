@@ -58,12 +58,12 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="GDScript" id="GDScript_j85lx"]
+[sub_resource type="GDScript" id="GDScript_pqgcu"]
 
 [sub_resource type="Theme" id="Theme_pqgcu"]
 Button/styles/hover = SubResource("StyleBoxFlat_d3h07")
 Button/styles/normal = SubResource("StyleBoxFlat_dprkd")
-script = SubResource("GDScript_j85lx")
+script = SubResource("GDScript_pqgcu")
 
 [node name="ComputerMenu" type="Control"]
 layout_mode = 3

@@ -1,0 +1,150 @@
+[gd_scene load_steps=13 format=3 uid="uid://tox8w0ktaife"]
+
+[ext_resource type="Texture2D" uid="uid://b0c6nmacj0pp7" path="res://assets/Textures/WindowsXP-RTM-Desktop.png" id="1_l66v0"]
+[ext_resource type="Script" uid="uid://cfuweufl8ttcn" path="res://assets/Scripts/load_end.gd" id="1_u8oy0"]
+[ext_resource type="Script" uid="uid://3o7efdcsc5h4" path="res://assets/Scripts/valide.gd" id="2_ifx5s"]
+[ext_resource type="Texture2D" uid="uid://bohfwvtk74a3y" path="res://assets/Textures/windows_xp_blank_window_template__1366x768__by_tyson67roberts_dceknie.png" id="3_u8oy0"]
+[ext_resource type="Texture2D" uid="uid://c0o0i14l2wcny" path="res://assets/Textures/logo_agenda.png" id="4_pp232"]
+[ext_resource type="Script" uid="uid://dpq0ql4dstqd5" path="res://assets/Scripts/quit.gd" id="5_03s32"]
+[ext_resource type="Script" uid="uid://cbo2t08n0688q" path="res://assets/Scripts/End_txt.gd" id="5_ifx5s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sorrv"]
+bg_color = Color(0.3341071, 0.70128286, 0.9935948, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3h07"]
+bg_color = Color(0, 0.6666667, 0.8156863, 0.28627452)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dprkd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(5.1138922e-08, 0.05763711, 0.08234062, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="GDScript" id="GDScript_j85lx"]
+
+[sub_resource type="Theme" id="Theme_1ijc7"]
+Button/styles/hover = SubResource("StyleBoxFlat_d3h07")
+Button/styles/normal = SubResource("StyleBoxFlat_dprkd")
+script = SubResource("GDScript_j85lx")
+
+[node name="End" type="Node2D"]
+script = ExtResource("1_u8oy0")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_l66v0")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="TextureRect2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 617.0
+offset_right = 111.0
+offset_bottom = 648.0
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+flat = true
+script = ExtResource("2_ifx5s")
+
+[node name="page" type="TextureRect" parent="."]
+offset_left = 227.0
+offset_top = 13.0
+offset_right = 1133.0
+offset_bottom = 608.0
+texture = ExtResource("3_u8oy0")
+expand_mode = 1
+
+[node name="title" type="Control" parent="page"]
+anchors_preset = 0
+offset_right = 153.0
+offset_bottom = 24.0
+
+[node name="Label" type="Label" parent="page/title"]
+layout_mode = 0
+offset_left = 39.0
+offset_right = 146.0
+offset_bottom = 23.0
+text = "Vos résultats"
+
+[node name="logo_page" type="TextureRect" parent="page/title"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 34.0
+offset_bottom = 23.0
+texture = ExtResource("4_pp232")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Contenu" type="Control" parent="page"]
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 29.0
+offset_right = 894.0
+offset_bottom = 583.0
+
+[node name="Label" type="Label" parent="page/Contenu"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 2.0
+offset_right = 593.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "Fin du semestre"
+
+[node name="Label2" type="Label" parent="page/Contenu"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 75.0
+offset_right = 879.0
+offset_bottom = 548.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+script = ExtResource("5_ifx5s")
+
+[node name="Tab_page" type="Panel" parent="."]
+offset_left = 112.0
+offset_top = 625.0
+offset_right = 265.0
+offset_bottom = 647.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sorrv")
+
+[node name="titre_tab" type="Label" parent="Tab_page"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = -2.0
+offset_right = 146.0
+offset_bottom = 21.0
+text = "Vos résultats"
+
+[node name="logo_tab" type="TextureRect" parent="Tab_page"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 31.0
+offset_bottom = 21.0
+texture = ExtResource("4_pp232")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Button" type="Button" parent="."]
+offset_top = 623.0
+offset_right = 108.0
+offset_bottom = 649.0
+theme = SubResource("Theme_1ijc7")
+script = ExtResource("5_03s32")

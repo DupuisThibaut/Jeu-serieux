@@ -2,8 +2,6 @@ extends Node
 
 var Actions = ["Réviser", "Sortir", "Dormir"]
 
-var Note = 12
-
 var choixMatin = -1
 
 var choixAprem = -1
@@ -13,7 +11,7 @@ var choixSoir = -1
 var Statistiques = {
 	"Note" : 0,
 	"Social" : 50,
-	"Santé" : 10,
+	"Santé" : 100,
 	"Argent" : 150
 }
 
@@ -43,18 +41,18 @@ var ES = [
 	  "Créneau" : ["Créneau du matin"]},
 	
 	{ "name" : "Blocus","Catégorie" : "Note","Description" : "Les étudiants sont pas content, ils ont bloqué la fac. Compliqué d'y aller aujourd'hui.",
-	  "Oui" : {"Description" : "Je vais réviser chez moi", "Conséquences": {"Note" : 10}}, 
-	  "Non" : {"Description" : "Je vais me reposer", "Conséquences" : {"Santé" : 10}}, 
+	  "Oui" : {"Description" : "Je vais réviser chez moi", "Conséquences": {"Note" : 0.3}}, 
+	  "Non" : {"Description" : "Je vais me reposer", "Conséquences" : {"Santé" : 5}}, 
 	  "Créneau" : ["Créneau du matin", "Créneau de l'après-midi"]},
 	
 	{ "name" : "Evenement entre amis","Catégorie" : ["Social", "Argent"],"Description" : "Aujourd'hui, je dois rejoindre mes amis, j'aurais pas le temps de travailler...", 
 	  "Oui" : {"Description" : "Je vais profiter de mes amis" , "Conséquences": {"Argent" : -20, "Social" : 10}}, 
-	  "Non" : {"Description" : "Je préfère réviser", "Conséquences" : {"Note" : 5}}, 
+	  "Non" : {"Description" : "Je préfère réviser", "Conséquences" : {"Note" : 0.5}}, 
 	  "Créneau" : ["Créneau du soir"]},
 	
 	{ "name" : "Malade", "Catégorie" : ["Santé"], "Description": "Je suis malade, j'aurais dû faire plus attentation à ma santé...", 
 	  "Oui": {"Description": "Je devrais rester chez moi et me reposer", "Conséquences":{"Santé" : 20}}, 
-	  "Non" : {"Description" : "Il faut que j'aille travailler", "Conséquences" : {"Note" : 10, "Santé" : -10}}, 
+	  "Non" : {"Description" : "Il faut que j'aille travailler", "Conséquences" : {"Note" : 0.2, "Santé" : -20}}, 
 	  "Créneau" : ["Créneau du matin", "Créneau de l'après-midi"]},
 	
 	{ "name" : "Gagner de l'argent", "Catégorie" : ["Argent"], "Description" : "Je n'ai plus assez d'argent pour finir le mois, je devrais travailler un peu",
@@ -63,13 +61,13 @@ var ES = [
 	  "Créneau" : ["Créneau du soir"]},
 	
 	{ "name": "Aller courir", "Catégorie": ["Santé"], "Description": "Il fait beau, c’est l’occasion d’aller courir pour rester en forme.", 
-	  "Oui": {"Description": "Je pars courir", "Conséquences": {"Santé": 15, "Note": -5}}, 
-	  "Non": {"Description": "Je reste chez moi", "Conséquences": {"Santé": 0}}, 
+	  "Oui": {"Description": "Je pars courir", "Conséquences": {"Santé": 15}}, 
+	  "Non": {"Description": "Je reste chez moi", "Conséquences": {"Santé": -10}}, 
 	  "Créneau": ["Créneau du matin"]},
 
 	{ "name": "Visite chez le médecin", "Catégorie": ["Santé", "Argent"], "Description": "J’ai un petit malaise, devrais-je aller chez le médecin ?", 
 	  "Oui": {"Description": "Je vais chez le médecin", "Conséquences": {"Santé": 20, "Argent": -20}}, 
-	  "Non": {"Description": "J’ignore le malaise", "Conséquences": {"Santé": -10}}, 
+	  "Non": {"Description": "J’ignore le malaise", "Conséquences": {"Santé": -20}}, 
 	  "Créneau": ["Créneau de l'après-midi"]},
 
 	{ "name": "Vendre des objets", "Catégorie": ["Argent"], "Description": "J’ai des objets inutilisés, je pourrais les vendre pour gagner un peu d’argent.", 
@@ -83,12 +81,12 @@ var ES = [
 	  "Créneau": ["Créneau du matin"]},
 
 	{ "name": "Participer à un groupe de révision", "Catégorie": ["Note", "Social"], "Description": "Un groupe de révision est organisé aujourd’hui, devrais-je y aller ?", 
-	  "Oui": {"Description": "Je participe au groupe", "Conséquences": {"Note": 10, "Social": 5}}, 
-	  "Non": {"Description": "Je n’y vais pas", "Conséquences": {"Note": 0, "Social": -5}}, 
+	  "Oui": {"Description": "Je participe au groupe", "Conséquences": {"Note": 0.3, "Social": 5}}, 
+	  "Non": {"Description": "Je n’y vais pas", "Conséquences": {"Note": -0.1, "Social": -5}}, 
 	  "Créneau": ["Créneau du matin", "Créneau de l'après-midi"]},
 
 	{ "name": "Faire un projet personnel", "Catégorie": ["Note"], "Description": "Travailler sur un projet perso pourrait améliorer mes compétences.", 
-	  "Oui": {"Description": "Je travaille sur mon projet", "Conséquences": {"Note": 5, "Social": -5}}, 
+	  "Oui": {"Description": "Je travaille sur mon projet", "Conséquences": {"Note": 0.2, "Social": -5}}, 
 	  "Non": {"Description": "Je ne fais rien", "Conséquences": {"Note": 0}}, 
 	  "Créneau": ["Créneau de l'après-midi"]},
 
@@ -108,8 +106,8 @@ var ES = [
 	  "Créneau": ["Créneau du matin", "Créneau du soir"]},
 
 	{ "name": "Travailler sur un stage", "Catégorie": ["Note", "Argent"], "Description": "Mon stage demande du travail aujourd’hui, devrais-je m’y consacrer ?", 
-	  "Oui": {"Description": "Je travaille sur le stage", "Conséquences": {"Note": 10, "Argent": 10}}, 
-	  "Non": {"Description": "Je procrastine", "Conséquences": {"Note": -5}}, 
+	  "Oui": {"Description": "Je travaille sur le stage", "Conséquences": {"Note": 0.2, "Argent": 10}}, 
+	  "Non": {"Description": "Je procrastine", "Conséquences": {"Note": -0.5}}, 
 	  "Créneau": ["Créneau du matin", "Créneau de l'après-midi"]}
 	]
 var ESinWeek := Array(range(ES.size()))

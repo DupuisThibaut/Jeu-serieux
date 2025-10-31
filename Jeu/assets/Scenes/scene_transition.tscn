@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1ypeikn4aa4w"]
+[gd_scene load_steps=8 format=3 uid="uid://c1ypeikn4aa4w"]
 
 [ext_resource type="Script" uid="uid://bd1m8b1fuy38f" path="res://assets/Scenes/scene_transition.gd" id="1_5kyvb"]
+[ext_resource type="AudioStream" uid="uid://b05h866t7ovvt" path="res://assets/audios/background_music.mp3" id="2_aoiqa"]
+[ext_resource type="Material" uid="uid://c4pktct8vebru" path="res://assets/shaders/health.tres" id="2_r7k6n"]
 
 [sub_resource type="Animation" id="Animation_61dpx"]
 length = 0.001
@@ -74,8 +76,15 @@ libraries = {
 }
 
 [node name="health" type="ColorRect" parent="."]
+visible = false
+material = ExtResource("2_r7k6n")
 offset_left = -33.0
 offset_top = -25.0
 offset_right = 1182.0
 offset_bottom = 689.0
-color = Color(1, 1, 1, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_aoiqa")
+volume_db = -30.0
+autoplay = true
+parameters/looping = true

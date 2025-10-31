@@ -9,9 +9,10 @@ func change_scene(newScene, transitionType):
 	get_tree().change_scene_to_file(newScene)
 	$anim_transition.play(anim_name("close",transitionType))
 	$health.visible = true
-	$health.color = Color(0,0,0,clamp(1.0-Global.Statistiques["Santé"]/50.0,0.0,1.0))
+	var h = clamp(Global.Statistiques["Santé"], 0, 100)
+	$health.material.set_shader_parameter("health", h)
+	$health.material.set_shader_parameter("blur_strength", (1.0-(h/100.0)))
 
-	
 func change_camera(camera, transitionType):
 	$anim_transition.play(anim_name("open",transitionType))
 	await $anim_transition.animation_finished
@@ -21,7 +22,9 @@ func change_camera(camera, transitionType):
 		$health.visible = false
 	else :
 		$health.visible = true
-		$health.color = Color(0,0,0,clamp(1.0-Global.Statistiques["Santé"]/50.0,0.0,1.0))
+		var h = clamp(Global.Statistiques["Santé"], 0, 100)
+		$health.material.set_shader_parameter("health", h)
+		$health.material.set_shader_parameter("blur_strength", (1.0-(h/100.0)))
 	
 func anim_name(transitionState,transitionType):
 	if transitionState=="open":

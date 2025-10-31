@@ -12,18 +12,27 @@ func _pressed():
 		Global.viseur.visible=true
 		get_tree().get_root().get_node("/root/Scene/HBoxContainer/Label_Day").change()
 		get_tree().get_root().get_node("/root/Scene/HBoxContainer/Label_Money").change()
+		get_tree().get_root().get_node("/root/Scene/Social/ProgressBar_Social").change()
+		get_tree().get_root().get_node("/root/Scene/Santé/ProgressBar_Santé").change()
 		Global.Statistiques["Santé"] = min(100,Global.Statistiques["Santé"])
-		SceneTransition.change_scene("res://assets/Scenes/MainScene.tscn",1)
+		Global.Statistiques["Social"] = min(100,Global.Statistiques["Social"])
+		Global.Statistiques["Note"] = min(20, Global.Statistiques["Note"])
+		if Global.numDay >= 30 :
+			SceneTransition.change_scene("res://assets/Scenes/End.tscn",1)
+		else :
+			SceneTransition.change_scene("res://assets/Scenes/MainScene.tscn",1)
 
 
 func _newDay():
 	var tab = ["Note","Social","Santé"]
+	var tab2 = [0.1,5,5]
+	Global.Statistiques["Santé"] -= 5
 	if(Global.choixMatin not in [4,5]) :
-		Global.Statistiques[tab[Global.choixMatin]] +=1
+		Global.Statistiques[tab[Global.choixMatin]] +=tab2[Global.choixMatin]
 	if(Global.choixAprem not in [4,5]) :
-		Global.Statistiques[tab[Global.choixAprem]] +=1
+		Global.Statistiques[tab[Global.choixAprem]] +=tab2[Global.choixAprem]
 	if(Global.choixSoir not in [4,5]) :
-		Global.Statistiques[tab[Global.choixSoir]] +=1
+		Global.Statistiques[tab[Global.choixSoir]] +=tab2[Global.choixSoir]
 	Global.numDay = Global.numDay + 1
 	Global.choixMatin = -1
 	Global.choixAprem = -1
@@ -41,4 +50,5 @@ func _newDay():
 	if(Global.numDayWeek == 0):
 		randomize()	
 		Global.ESinWeek.shuffle()
+		
 	

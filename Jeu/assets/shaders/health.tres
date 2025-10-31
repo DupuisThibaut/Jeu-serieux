@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c4pktct8vebru"]
+
+[ext_resource type="Shader" uid="uid://bvps3srdommtg" path="res://assets/shaders/health.gdshader" id="1_korwl"]
+
+[resource]
+shader = ExtResource("1_korwl")
+shader_parameter/health = 100.0
+shader_parameter/blur_strength = 2.0

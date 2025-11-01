@@ -13,9 +13,11 @@ var mouse_sensitivity = 0.002
 
 var testBureau=false
 var testPorteSDB=false
+var testDouche=false
 var porteSDB=true
 var result
 var travail=false
+var testManger=false
 
 #signal changementScene(cell)
 
@@ -55,9 +57,29 @@ func _input(event):
 			if(result["collider"].get_children()[0].name=="BureauHaut" || result["collider"].get_parent().get_parent().name=="Ordinateur"):
 				testBureau=true
 				Global.interaction.visible=true
-			elif(result["collider"].get_children()[0].name=="NodePorteSDB"):
+			if(result["collider"].get_children()[0].name=="NodePorteSDB"):
 				testPorteSDB=true
 				Global.interaction.visible=true
+			if(!Global.mangeAjd):
+				if(result["collider"].get_name()=="Salade" && result["collider"].visible):
+					testManger=true
+					Global.interaction.visible=true
+				elif(result["collider"].get_name()=="Viande" && result["collider"].visible):
+					testManger=true
+					Global.interaction.visible=true
+				elif(result["collider"].get_name()=="Steak" && result["collider"].visible):
+					testManger=true
+					Global.interaction.visible=true
+				elif(result["collider"].get_name()=="Tomate" && result["collider"].visible):
+					testManger=true
+					Global.interaction.visible=true
+				elif(result["collider"].get_name()=="Patate" && result["collider"].visible):
+					testManger=true
+					Global.interaction.visible=true
+			if(!Global.doucheAjd):
+				if result["collider"].get_parent().name=="Douche":
+					testDouche=true
+					Global.interaction.visible=true
 	if event is InputEventMouseButton:
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			if testBureau:
@@ -79,17 +101,42 @@ func _input(event):
 			if testPorteSDB:
 				Global.interaction.visible=false
 				if porteSDB:
+					$Sons/PorteOuverte.play()
 					result["collider"].get_children()[0].rotation[1]=PI/2
 					result["collider"].get_children()[1].position=Vector3(0.646,0.4,0.22)
 					result["collider"].get_children()[1].rotation[1]=90
 					porteSDB=false
 					testPorteSDB=false
 				else:
+					$Sons/PorteFerme.play()
 					result["collider"].get_children()[0].rotation[1]=0
 					result["collider"].get_children()[1].position=Vector3(0.805,0.4,0.38)
 					result["collider"].get_children()[1].rotation[1]=0
 					porteSDB=true
 					testPorteSDB=false
+			if testManger:
+				if !Global.mangeAjd:
+					$Sons/Manger.play()
+					result["collider"].visible=false
+					Global.mangeAjd=true
+					Global.interaction.visible=false
+					Global.changerStat("Santé",3)
+					if result["collider"].name=="Patate":
+						Global.patate=false
+					if result["collider"].name=="Steak":
+						Global.steak=false
+					if result["collider"].name=="Viande":
+						Global.viande=false
+					if result["collider"].name=="Tomate":
+						Global.tomate=false
+					if result["collider"].name=="Salade":
+						Global.salade=false
+			if testDouche:
+				if !Global.doucheAjd:
+					SceneTransition.douche()
+					Global.doucheAjd=true
+					Global.interaction.visible=false
+					Global.changerStat("Santé",2)
 	if event is InputEventKey:
 		if event.pressed and event.keycode==KEY_ESCAPE:
 			if travail:

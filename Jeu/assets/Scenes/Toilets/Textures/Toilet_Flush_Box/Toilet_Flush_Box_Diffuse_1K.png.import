@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://hrd4h2e5y4nx"
 path.s3tc="res://.godot/imported/Toilet_Flush_Box_Diffuse_1K.png-9cbb9aee79a1ab739becf9d79893f6ec.s3tc.ctex"
+path.etc2="res://.godot/imported/Toilet_Flush_Box_Diffuse_1K.png-9cbb9aee79a1ab739becf9d79893f6ec.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Scenes/Toilets/Textures/Toilet_Flush_Box/Toilet_Flush_Box_Diffuse_1K.png"
-dest_files=["res://.godot/imported/Toilet_Flush_Box_Diffuse_1K.png-9cbb9aee79a1ab739becf9d79893f6ec.s3tc.ctex"]
+dest_files=["res://.godot/imported/Toilet_Flush_Box_Diffuse_1K.png-9cbb9aee79a1ab739becf9d79893f6ec.s3tc.ctex", "res://.godot/imported/Toilet_Flush_Box_Diffuse_1K.png-9cbb9aee79a1ab739becf9d79893f6ec.etc2.ctex"]
 
 [params]
 

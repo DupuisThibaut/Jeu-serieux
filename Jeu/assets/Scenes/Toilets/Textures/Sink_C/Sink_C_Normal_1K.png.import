@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://qhcad2hdvb60"
 path.s3tc="res://.godot/imported/Sink_C_Normal_1K.png-63a799c1a9c3140821ab00e30cfcff11.s3tc.ctex"
+path.etc2="res://.godot/imported/Sink_C_Normal_1K.png-63a799c1a9c3140821ab00e30cfcff11.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Scenes/Toilets/Textures/Sink_C/Sink_C_Normal_1K.png"
-dest_files=["res://.godot/imported/Sink_C_Normal_1K.png-63a799c1a9c3140821ab00e30cfcff11.s3tc.ctex"]
+dest_files=["res://.godot/imported/Sink_C_Normal_1K.png-63a799c1a9c3140821ab00e30cfcff11.s3tc.ctex", "res://.godot/imported/Sink_C_Normal_1K.png-63a799c1a9c3140821ab00e30cfcff11.etc2.ctex"]
 
 [params]
 

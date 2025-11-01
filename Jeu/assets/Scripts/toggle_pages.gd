@@ -1,9 +1,9 @@
 extends TabBar
 @export var contenu_page: Node
 var creneaux = {
-	"Créneau du matin": Global.Actions,
-	"Créneau de l'après-midi": Global.Actions,
-	"Créneau du soir": Global.Actions
+	"Créneau du matin": Global.ActionsJournée,
+	"Créneau de l'après-midi": Global.ActionsJournée,
+	"Créneau du soir": Global.ActionsSoir
 }
 func _ready():
 	connect("tab_changed", Callable(self, "_on_tab_changed"))
@@ -23,6 +23,8 @@ func afficher_resume():
 		for child in contenu_page.get_children() :
 			child.queue_free()
 		var resume_label = Label.new()
+		resume_label.horizontal_alignment=1
+		resume_label.vertical_alignment=1
 		if(Global.Statistiques["Santé"]<50):
 			resume_label.text = "Bonjour !!\n La journée d'hier fut longue, votre état a beaucoup changé !! \n Voici un résumé de vos statistiques : \n Santé : "+ str(Global.Statistiques["Santé"])+"\n\n Argent : "+ str(Global.Statistiques["Argent"])+"\n\n Vous ne semblez pas très en forme..."
 		elif(Global.Statistiques["Social"]<30):
@@ -55,6 +57,7 @@ func afficher_evenements():
 	if contenu_page :
 		var es = Global.ES[Global.ESinWeek[Global.numDayWeek]]
 		print(es)
+		print("yeepi")
 		for child in contenu_page.get_children():
 				child.queue_free()	
 		var vbox = VBoxContainer.new()
@@ -87,7 +90,8 @@ func afficher_evenements():
 		var style_hover = style.duplicate()
 		style_hover.bg_color = Color(0.3, 0.5, 1)
 		btnOui.add_theme_stylebox_override("hover", style_hover)
-		btnOui.text = es["Oui"]["Description"]  + " " + build_consequences_text(es["Oui"]["Conséquences"])
+		btnOui.text = es["Oui"]["Description"]
+		  #+ " " + build_consequences_text(es["Oui"]["Conséquences"])
 		btnOui.pressed.connect(func():
 			Global.ChoixES = es["Oui"]
 			if("Créneau du matin" in Global.ES[Global.ESinWeek[Global.numDayWeek]]["Créneau"]):
@@ -99,7 +103,8 @@ func afficher_evenements():
 		)
 		hbox.add_child(btnOui)
 		var btnNon = Button.new()
-		btnNon.text = es["Non"]["Description"]  + " " + build_consequences_text(es["Non"]["Conséquences"])
+		btnNon.text = es["Non"]["Description"]  
+		#+ " " + build_consequences_text(es["Non"]["Conséquences"])
 		btnNon.add_theme_color_override("font_color", Color.WHITE)
 		btnNon.add_theme_color_override("font_color_hover", Color.BLACK) 
 		btnNon.add_theme_stylebox_override("normal", style)
@@ -142,17 +147,17 @@ func afficher_planning():
 					if(Global.choixMatin == -1):
 						btn.text = creneau_text
 					else :
-						btn.text = creneau_text + " : " + Global.Actions[Global.choixMatin]
+						btn.text = creneau_text + " : " + Global.ActionsJournée[Global.choixMatin]
 				elif(i ==1):
 					if(Global.choixAprem == -1):
 						btn.text = creneau_text
 					else :
-						btn.text = creneau_text + " : " + Global.Actions[Global.choixAprem]
+						btn.text = creneau_text + " : " + Global.ActionsJournée[Global.choixAprem]
 				elif(i ==2):
 					if(Global.choixSoir == -1):
 						btn.text = creneau_text
 					else :
-						btn.text = creneau_text + " : " + Global.Actions[Global.choixSoir]
+						btn.text = creneau_text + " : " + Global.ActionsSoir[Global.choixSoir]
 				var popup = btn.get_popup()
 				for option in creneaux[creneau_text]:
 					popup.add_item(option)
@@ -172,7 +177,8 @@ func afficher_planning():
 				txt.add_theme_color_override("font_color", Color.DARK_RED)
 				txt.horizontal_alignment =HORIZONTAL_ALIGNMENT_CENTER
 				if(Global.ChoixES != {}):
-					txt.text = Global.ChoixES["Description"]+ " " + build_consequences_text(Global.ChoixES["Conséquences"])
+					txt.text = Global.ChoixES["Description"]
+					#+ " " + build_consequences_text(Global.ChoixES["Conséquences"])
 				else :
 					txt.text = creneau_text
 				vbox.add_child(txt)

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://uqa2qdh6avgq"
 path.s3tc="res://.godot/imported/Toilet_Elongated_Seat_Normal_1K.png-5c5988fe52b2e22acba6ca270d8c30a9.s3tc.ctex"
+path.etc2="res://.godot/imported/Toilet_Elongated_Seat_Normal_1K.png-5c5988fe52b2e22acba6ca270d8c30a9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Scenes/Toilets/Textures/Toilet_Elongated_Seat/Toilet_Elongated_Seat_Normal_1K.png"
-dest_files=["res://.godot/imported/Toilet_Elongated_Seat_Normal_1K.png-5c5988fe52b2e22acba6ca270d8c30a9.s3tc.ctex"]
+dest_files=["res://.godot/imported/Toilet_Elongated_Seat_Normal_1K.png-5c5988fe52b2e22acba6ca270d8c30a9.s3tc.ctex", "res://.godot/imported/Toilet_Elongated_Seat_Normal_1K.png-5c5988fe52b2e22acba6ca270d8c30a9.etc2.ctex"]
 
 [params]
 

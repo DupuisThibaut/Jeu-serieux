@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bohfwvtk74a3y"
 path.s3tc="res://.godot/imported/windows_xp_blank_window_template__1366x768__by_tyson67roberts_dceknie.png-71460818462aba6603ecf2b3a58ec66f.s3tc.ctex"
+path.etc2="res://.godot/imported/windows_xp_blank_window_template__1366x768__by_tyson67roberts_dceknie.png-71460818462aba6603ecf2b3a58ec66f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Textures/windows_xp_blank_window_template__1366x768__by_tyson67roberts_dceknie.png"
-dest_files=["res://.godot/imported/windows_xp_blank_window_template__1366x768__by_tyson67roberts_dceknie.png-71460818462aba6603ecf2b3a58ec66f.s3tc.ctex"]
+dest_files=["res://.godot/imported/windows_xp_blank_window_template__1366x768__by_tyson67roberts_dceknie.png-71460818462aba6603ecf2b3a58ec66f.s3tc.ctex", "res://.godot/imported/windows_xp_blank_window_template__1366x768__by_tyson67roberts_dceknie.png-71460818462aba6603ecf2b3a58ec66f.etc2.ctex"]
 
 [params]
 

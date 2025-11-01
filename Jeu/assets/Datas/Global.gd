@@ -1,6 +1,8 @@
 extends Node
 
 var Actions = ["Réviser", "Sortir", "Dormir"]
+var ActionsJournée = ["Aller en cours", "Sortir", "Dormir"]
+var ActionsSoir = ["Réviser", "Sortir", "Dormir"]
 
 var choixMatin = -1
 
@@ -15,6 +17,17 @@ var Statistiques = {
 	"Argent" : 150
 }
 
+func changerStat(stat,nb):
+	if stat=="Note":
+		if Statistiques["Note"]+nb>20:
+			Statistiques["Note"]=20
+	if stat=="Social":
+		if Statistiques["Social"]+nb>100:
+			Statistiques["Social"]=100
+	if stat=="Santé":
+		if Statistiques["Santé"]+nb>100:
+			Statistiques["Santé"]=100
+
 var ChoixES = {}
 
 var numDay = 1
@@ -28,7 +41,14 @@ var cameraPerso
 func cam():
 	cameraPerso.make_current()
 
+var mangeAjd=false
+var doucheAjd=false
 
+var patate=true
+var viande=true
+var steak=true
+var tomate=true
+var salade=true
 
 signal changementScene()
 func _on_changement_scene():
@@ -36,7 +56,7 @@ func _on_changement_scene():
 
 var ES = [
 	{ "name" : "Faire des courses","Catégorie" : ["Santé","Argent"],"Description" : "Le frigo est vide, il faut que j'aille faire des courses aujourd'hui.",
-	  "Oui" : {"Description" : "Aller faire les courses", "Conséquences": {"Argent" : -30, "Santé" : 10}}, 
+	  "Oui" : {"Description" : "Aller faire les courses", "Conséquences": {"Argent" : -30, "Santé" : 10}, "name": "Courses"}, 
 	  "Non" : {"Description" : "On verra plus tard", "Conséquences" : {"Santé" : -10}}, 
 	  "Créneau" : ["Créneau du matin"]},
 	
@@ -50,7 +70,7 @@ var ES = [
 	  "Non" : {"Description" : "Je préfère réviser", "Conséquences" : {"Note" : 0.5}}, 
 	  "Créneau" : ["Créneau du soir"]},
 	
-	{ "name" : "Malade", "Catégorie" : ["Santé"], "Description": "Je suis malade, j'aurais dû faire plus attentation à ma santé...", 
+	{ "name" : "Malade", "Catégorie" : ["Santé"], "Description": "Je suis malade, j'aurais dû faire plus attention à ma santé...", 
 	  "Oui": {"Description": "Je devrais rester chez moi et me reposer", "Conséquences":{"Santé" : 20}}, 
 	  "Non" : {"Description" : "Il faut que j'aille travailler", "Conséquences" : {"Note" : 0.2, "Santé" : -20}}, 
 	  "Créneau" : ["Créneau du matin", "Créneau de l'après-midi"]},

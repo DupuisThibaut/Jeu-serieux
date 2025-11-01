@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://xu3bvnv4t1hm"
 path.s3tc="res://.godot/imported/fond ecran.jpg-7f2f64dc2a2020cd04acb2a49397d386.s3tc.ctex"
+path.etc2="res://.godot/imported/fond ecran.jpg-7f2f64dc2a2020cd04acb2a49397d386.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Textures/fond ecran.jpg"
-dest_files=["res://.godot/imported/fond ecran.jpg-7f2f64dc2a2020cd04acb2a49397d386.s3tc.ctex"]
+dest_files=["res://.godot/imported/fond ecran.jpg-7f2f64dc2a2020cd04acb2a49397d386.s3tc.ctex", "res://.godot/imported/fond ecran.jpg-7f2f64dc2a2020cd04acb2a49397d386.etc2.ctex"]
 
 [params]
 

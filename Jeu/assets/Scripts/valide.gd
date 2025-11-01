@@ -10,6 +10,8 @@ func _pressed():
 		await get_tree().create_timer(0.8).timeout
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		Global.viseur.visible=true
+		Global.mangeAjd=false
+		Global.doucheAjd=false
 		get_tree().get_root().get_node("/root/Scene/HBoxContainer/Label_Day").change()
 		get_tree().get_root().get_node("/root/Scene/HBoxContainer/Label_Money").change()
 		get_tree().get_root().get_node("/root/Scene/Social/ProgressBar_Social").change()
@@ -20,7 +22,7 @@ func _pressed():
 		if Global.numDay >= 30 :
 			SceneTransition.change_scene("res://assets/Scenes/End.tscn",1)
 		else :
-			SceneTransition.change_scene("res://assets/Scenes/MainScene.tscn",1)
+			SceneTransition.change_scene("res://assets/Scenes/MainScene.tscn",2)
 
 
 func _newDay():
@@ -38,12 +40,23 @@ func _newDay():
 	Global.choixAprem = -1
 	Global.choixSoir = -1
 	if Global.ChoixES != {}:
+		print(Global.ChoixES)
+		if(Global.ChoixES.has("name")):
+			if(Global.ChoixES.get("name")=="Courses"):
+				Global.patate=true
+				Global.salade=true
+				Global.steak=true
+				Global.viande=true
+				Global.tomate=true
 		if(Global.ChoixES["Conséquences"].has("Santé")):
-			Global.Statistiques["Santé"] += Global.ChoixES["Conséquences"]["Santé"]
+			#Global.Statistiques["Santé"] += Global.ChoixES["Conséquences"]["Santé"]
+			Global.changerStat("Santé",Global.ChoixES["Conséquences"]["Santé"])
 		if(Global.ChoixES["Conséquences"].has("Social")):
-			Global.Statistiques["Social"] += Global.ChoixES["Conséquences"]["Social"]
+			#Global.Statistiques["Social"] += Global.ChoixES["Conséquences"]["Social"]
+			Global.changerStat("Social",Global.ChoixES["Conséquences"]["Social"])
 		if(Global.ChoixES["Conséquences"].has("Note")):
-			Global.Statistiques["Note"] += Global.ChoixES["Conséquences"]["Note"]
+			#Global.Statistiques["Note"] += Global.ChoixES["Conséquences"]["Note"]
+			Global.changerStat("Note",Global.ChoixES["Conséquences"]["Note"])
 		if(Global.ChoixES["Conséquences"].has("Argent")) :
 			Global.Statistiques["Argent"] += Global.ChoixES["Conséquences"]["Argent"]
 	Global.numDayWeek = (Global.numDayWeek + 1)%5

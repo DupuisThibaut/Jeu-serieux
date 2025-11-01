@@ -4,7 +4,6 @@ func _ready():
 	set_process_input(true)
 	
 func _pressed():
-	print(Global.ChoixES, Global.choixMatin, Global.choixAprem, Global.choixSoir)
 	if(Global.ChoixES != {} and Global.choixMatin != -1 and Global.choixAprem != -1 and Global.choixSoir !=-1) :
 		_newDay()
 		await get_tree().create_timer(0.8).timeout
@@ -24,11 +23,26 @@ func _pressed():
 		else :
 			SceneTransition.change_scene("res://assets/Scenes/MainScene.tscn",2)
 
+func assign_event_type(type:int):
+	var candidats = []	
+	for i in range(Global.ES.size()):
+		if Global.ES[i]["type"] == type:
+			candidats.append(i)	
+	if candidats.size() > 0:
+		randomize()
+		var id = candidats[randi() % candidats.size()]
+		Global.ESinWeek[Global.numDayWeek] = id
+		print("→ Semaine ", Global.numDayWeek, " : événement choisi = ", Global.ES[id]["name"])
+	else:
+		print("Aucun événement de type 1 trouvé !")
 
 func _newDay():
 	var tab = ["Note","Social","Santé"]
-	var tab2 = [0.1,5,5]
-	Global.Statistiques["Santé"] -= 5
+	var Sante_multiplier = (2.0 - Global.Statistiques["Social"]/100.0)
+	var Note_multiplier = Global.Statistiques["Santé"]/100.0
+	var tab2 = [0.1*Note_multiplier,5,5.0]
+	#Global.Statistiques["Santé"] -= 10 * Sante_multiplier
+	Global.changerStat("Santé",-10.0*Sante_multiplier)
 	if(Global.choixMatin not in [4,5]) :
 		Global.Statistiques[tab[Global.choixMatin]] +=tab2[Global.choixMatin]
 	if(Global.choixAprem not in [4,5]) :
@@ -56,12 +70,15 @@ func _newDay():
 			Global.changerStat("Social",Global.ChoixES["Conséquences"]["Social"])
 		if(Global.ChoixES["Conséquences"].has("Note")):
 			#Global.Statistiques["Note"] += Global.ChoixES["Conséquences"]["Note"]
-			Global.changerStat("Note",Global.ChoixES["Conséquences"]["Note"])
+			Global.changerStat("Note",Global.ChoixES["Conséquences"]["Note"]*Note_multiplier)
 		if(Global.ChoixES["Conséquences"].has("Argent")) :
 			Global.Statistiques["Argent"] += Global.ChoixES["Conséquences"]["Argent"]
 	Global.numDayWeek = (Global.numDayWeek + 1)%5
+	if(Global.patate==false and Global.viande == false and Global.steak==false and Global.tomate==false and Global.salade==false):
+		Global.ESinWeek[Global.numDayWeek] = assign_event_type(2)
+	elif(Global.Statistiques["Argent"]<20):
+		Global.ESinWeek[Global.numDayWeek] = assign_event_type(3)
 	if(Global.numDayWeek == 0):
-		randomize()	
-		Global.ESinWeek.shuffle()
+		Global.generate_ES_week()
 		
 	

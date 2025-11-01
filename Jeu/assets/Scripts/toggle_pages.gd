@@ -12,7 +12,6 @@ func _on_tab_changed(tab_index):
 	match tab_index:
 		0:
 			afficher_resume()
-			print("hello")
 		1:
 			afficher_evenements()
 		2:
@@ -94,11 +93,11 @@ func afficher_evenements():
 		  #+ " " + build_consequences_text(es["Oui"]["Conséquences"])
 		btnOui.pressed.connect(func():
 			Global.ChoixES = es["Oui"]
-			if("Créneau du matin" in Global.ES[Global.ESinWeek[Global.numDayWeek]]["Créneau"]):
+			if("Créneau du matin" in Global.ChoixES["Créneau"]):
 				Global.choixMatin = 4
-			if("Créneau de l'après-midi" in Global.ES[Global.ESinWeek[Global.numDayWeek]]["Créneau"]):
+			if("Créneau de l'après-midi" in Global.ChoixES["Créneau"]):
 				Global.choixAprem = 4
-			if("Créneau du soir" in Global.ES[Global.ESinWeek[Global.numDayWeek]]["Créneau"]):
+			if("Créneau du soir" in Global.ChoixES["Créneau"]):
 				Global.choixSoir = 4		
 		)
 		hbox.add_child(btnOui)
@@ -111,11 +110,11 @@ func afficher_evenements():
 		btnNon.add_theme_stylebox_override("hover", style_hover)
 		btnNon.pressed.connect(func():
 			Global.ChoixES = es["Non"]
-			if("Créneau du matin" in Global.ES[Global.ESinWeek[Global.numDayWeek]]["Créneau"]):
+			if("Créneau du matin" in Global.ChoixES["Créneau"]):
 				Global.choixMatin = 5
-			if("Créneau de l'après-midi" in Global.ES[Global.ESinWeek[Global.numDayWeek]]["Créneau"]):
+			if("Créneau de l'après-midi" in Global.ChoixES["Créneau"]):
 				Global.choixAprem = 5
-			if("Créneau du soir" in Global.ES[Global.ESinWeek[Global.numDayWeek]]["Créneau"]):
+			if("Créneau du soir" in Global.ChoixES["Créneau"]):
 				Global.choixSoir = 5	
 		)
 		hbox.add_child(btnNon)

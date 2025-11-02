@@ -72,7 +72,7 @@ var ES = [
 	},
 	
 	{ "name" : "Blocus","Catégorie" : "Note","Description" : "La fac est bloqué. Compliqué d'y aller aujourd'hui.",
-	  "Oui" : {"Description" : "Je vais réviser chez moi", "Conséquences": {"Note" : 0.3},"Créneau" : ["Créneau du matin", "Créneau de l'après-midi"]}, 
+	  "Oui" : {"Description" : "Je vais réviser chez moi", "Conséquences": {"Note" : 0.6},"Créneau" : ["Créneau du matin", "Créneau de l'après-midi"]}, 
 	  "Non" : {"Description" : "Je vais me reposer", "Conséquences" : {},"Créneau" : []},
 	  "type" : 1
 	},
@@ -120,13 +120,13 @@ var ES = [
 	},
 
 	{ "name": "Participer à un groupe de révision", "Catégorie": ["Note", "Social"], "Description": "Un groupe de révision est organisé aujourd’hui, devrais-je y aller ?", 
-	  "Oui": {"Description": "Je participe au groupe", "Conséquences": {"Note": 0.3, "Social": 5},"Créneau": ["Créneau du matin", "Créneau de l'après-midi"]}, 
+	  "Oui": {"Description": "Je participe au groupe", "Conséquences": {"Note": 0.6, "Social": 5},"Créneau": ["Créneau du matin", "Créneau de l'après-midi"]}, 
 	  "Non": {"Description": "Je n’y vais pas", "Conséquences": {"Note": -0.1, "Social": -5},"Créneau": []},
 	  "type" : 0
 	},
 
 	{ "name": "Continuer un projet personnel", "Catégorie": ["Note"], "Description": "Pendant les vacances j'ai travaillé sur un projet perso je le continue, je pourrais améliorer mes compétences ?", 
-	  "Oui": {"Description": "Je travaille sur mon projet", "Conséquences": {"Note": 0.2, "Social": -5},"Créneau": ["Créneau de l'après-midi","Créneau du soir"]}, 
+	  "Oui": {"Description": "Je travaille sur mon projet", "Conséquences": {"Note": 0.4, "Social": -5},"Créneau": ["Créneau de l'après-midi","Créneau du soir"]}, 
 	  "Non": {"Description": "Je ne fais rien", "Conséquences": {"Note": 0},"Créneau": []},
 	  "type" : 0
 	},

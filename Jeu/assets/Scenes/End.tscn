@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://tox8w0ktaife"]
+[gd_scene load_steps=15 format=3 uid="uid://tox8w0ktaife"]
 
 [ext_resource type="Texture2D" uid="uid://b0c6nmacj0pp7" path="res://assets/Textures/WindowsXP-RTM-Desktop.png" id="1_l66v0"]
 [ext_resource type="Script" uid="uid://cfuweufl8ttcn" path="res://assets/Scripts/load_end.gd" id="1_u8oy0"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c0o0i14l2wcny" path="res://assets/Textures/logo_agenda.png" id="4_pp232"]
 [ext_resource type="Script" uid="uid://dpq0ql4dstqd5" path="res://assets/Scripts/quit.gd" id="5_03s32"]
 [ext_resource type="Script" uid="uid://cbo2t08n0688q" path="res://assets/Scripts/End_txt.gd" id="5_ifx5s"]
+[ext_resource type="FontFile" uid="uid://brc2ekgylm4xj" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Bold.ttf" id="6_03s32"]
+[ext_resource type="FontFile" uid="uid://dsa0i34ay2r3e" path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" id="7_sorrv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sorrv"]
 bg_color = Color(0.3341071, 0.70128286, 0.9935948, 1)
@@ -100,11 +102,12 @@ offset_bottom = 583.0
 
 [node name="Label" type="Label" parent="page/Contenu"]
 layout_mode = 0
-offset_left = 300.0
+offset_left = 283.0
 offset_top = 2.0
-offset_right = 593.0
+offset_right = 616.0
 offset_bottom = 55.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_03s32")
 theme_override_font_sizes/font_size = 38
 text = "Fin du semestre"
 
@@ -115,6 +118,7 @@ offset_top = 75.0
 offset_right = 879.0
 offset_bottom = 548.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_sorrv")
 script = ExtResource("5_ifx5s")
 
 [node name="Tab_page" type="Panel" parent="."]

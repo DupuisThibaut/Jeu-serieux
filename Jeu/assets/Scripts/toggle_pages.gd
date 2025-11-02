@@ -7,6 +7,7 @@ var creneaux = {
 }
 func _ready():
 	connect("tab_changed", Callable(self, "_on_tab_changed"))
+	_on_tab_changed(get_current_tab())
 
 func _on_tab_changed(tab_index):
 	match tab_index:
@@ -152,7 +153,7 @@ func afficher_planning():
 				print(creneau_text, " ", Global.choixMatin, " ", Global.choixAprem, " ", Global.choixSoir)
 				var btn = MenuButton.new()
 				btn.add_theme_color_override("font_color", Color.BLACK)
-				#btn.add_theme_color_override("font_color_hover", Color.WEB_PURPLE)
+				btn.add_theme_color_override("font_hover_color", Color.WEB_PURPLE)
 				print(btn.get_theme_color("font_color_hover"))
 				if(i ==0):
 					if(Global.choixMatin == -1):

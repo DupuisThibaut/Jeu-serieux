@@ -19,7 +19,7 @@ func _pressed():
 		Global.Statistiques["Santé"] = min(100,Global.Statistiques["Santé"])
 		Global.Statistiques["Social"] = min(100,Global.Statistiques["Social"])
 		Global.Statistiques["Note"] = min(20, Global.Statistiques["Note"])
-		if Global.numDay >= 15 :
+		if Global.numDay >= 0 :
 			SceneTransition.change_scene("res://assets/Scenes/End.tscn",1)
 		else :
 			SceneTransition.change_scene("res://assets/Scenes/MainScene.tscn",2)

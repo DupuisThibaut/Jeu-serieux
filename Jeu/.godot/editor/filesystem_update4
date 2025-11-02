@@ -1,3 +1,6 @@
 res://assets/Scenes/MainScene.tscn
 res://assets/shaders/health.gdshader
 res://assets/Scripts/valide.gd
+res://assets/Scenes/ComputerMenu.tscn
+res://assets/Scripts/toggle_pages.gd
+res://assets/Scenes/End.tscn

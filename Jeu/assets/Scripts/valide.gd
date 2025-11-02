@@ -42,7 +42,7 @@ func _newDay():
 	var tab = ["Note","Social","Santé"]
 	var Sante_multiplier = (2.0 - Global.Statistiques["Social"]/100.0)
 	var Note_multiplier = Global.Statistiques["Santé"]/100.0
-	var tab2 = [0.1*Note_multiplier,5,5.0]
+	var tab2 = [1.0*Note_multiplier,5,5.0]
 	#Global.Statistiques["Santé"] -= 10 * Sante_multiplier
 	print("La santé : " + str(-10.0*Sante_multiplier))
 	Global.changerStat("Santé",-10.0*Sante_multiplier)

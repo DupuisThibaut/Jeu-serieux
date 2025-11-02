@@ -1023,6 +1023,7 @@ transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -0
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -1152.0
@@ -1067,6 +1068,7 @@ offset_left = 911.0
 offset_top = 58.0
 offset_right = 951.0
 offset_bottom = 98.0
+grow_horizontal = 0
 
 [node name="ProgressBar_Social" type="ProgressBar" parent="HUD/Social"]
 layout_mode = 0
@@ -1095,6 +1097,7 @@ offset_left = 824.0
 offset_top = 14.0
 offset_right = 1092.0
 offset_bottom = 54.0
+grow_horizontal = 0
 theme_override_constants/separation = 50
 
 [node name="Label_Money" type="Label" parent="HUD/HBoxContainer"]

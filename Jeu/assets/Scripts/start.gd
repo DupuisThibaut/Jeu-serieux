@@ -12,6 +12,7 @@ func _gui_input(event: InputEvent) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			SceneTransition.new()
 			await get_tree().create_timer(0.6).timeout
+			Global.hud.visible=true
 			Global.viseur.visible=true
 			Global.cam()
 			print("test")

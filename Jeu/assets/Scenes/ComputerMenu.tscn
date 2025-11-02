@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://rsr7a4pskn5n"]
+[gd_scene load_steps=17 format=3 uid="uid://rsr7a4pskn5n"]
 
 [ext_resource type="Texture2D" uid="uid://b0c6nmacj0pp7" path="res://assets/Textures/WindowsXP-RTM-Desktop.png" id="3_pqgcu"]
 [ext_resource type="Texture2D" uid="uid://c0o0i14l2wcny" path="res://assets/Textures/logo_agenda.png" id="4_j85lx"]
@@ -31,6 +31,67 @@ TabBar/colors/font_selected_color = Color(0.86898494, 0.8689849, 0.8689849, 1)
 TabBar/colors/font_unselected_color = Color(1, 1, 1, 1)
 TabBar/styles/tab_selected = SubResource("StyleBoxFlat_j85lx")
 TabBar/styles/tab_unselected = SubResource("StyleBoxFlat_gtgd6")
+
+[sub_resource type="Animation" id="Animation_j85lx"]
+resource_name = "anim_valide"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button/Control:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cxekh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button/Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button/Control:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtgd6"]
+_data = {
+&"RESET": SubResource("Animation_cxekh"),
+&"anim_valide": SubResource("Animation_j85lx")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxekh"]
 bg_color = Color(0.3341071, 0.70128286, 0.9935948, 1)
@@ -159,6 +220,12 @@ tab_2/title = "Planning"
 script = ExtResource("7_gtgd6")
 contenu_page = NodePath("../ContenuPage2")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Computer/TabBar"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_gtgd6")
+}
+
 [node name="ContenuPage" type="ColorRect" parent="Computer"]
 clip_contents = true
 layout_mode = 0
@@ -207,3 +274,34 @@ offset_right = 108.0
 offset_bottom = 649.0
 theme = SubResource("Theme_pqgcu")
 script = ExtResource("5_j85lx")
+
+[node name="Control" type="Control" parent="Button"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 39.99997
+
+[node name="ColorRect" type="ColorRect" parent="Button/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -30.0
+offset_right = 97.0
+offset_bottom = -9.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Button/Control"]
+layout_mode = 0
+offset_left = 50.000008
+offset_top = -20.0
+offset_right = 65.116005
+offset_bottom = -4.884
+rotation = 0.7853982
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Button/Control"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = -32.0
+offset_right = 98.0
+offset_bottom = -9.0
+text = "Validez ici !"

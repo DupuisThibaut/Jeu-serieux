@@ -1,14 +1,15 @@
+MenuButton
+Control
+AnimationPlayer
+Label      - Matches the "text" keyword.
+ColorRect
+Label
 Node3D
 AudioListener3D
 AudioStreamPlayer3D
 CollisionShape3D
 StaticBody3D
 MeshInstance3D
-Label      - Matches the "text" keyword.
-ColorRect
 TextEdit
-Label
 ItemList
 RichTextLabel
-Control
-TextureRect

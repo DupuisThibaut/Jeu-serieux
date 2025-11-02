@@ -83,33 +83,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 15.0
-offset_right = 1151.0
-offset_bottom = 103.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_top = 19.0
+offset_right = 572.0
+offset_bottom = 105.0
+grow_horizontal = 2
 theme = SubResource("Theme_gyspm")
 theme_override_font_sizes/font_size = 64
 text = "3 weeks : Mission to success"
 horizontal_alignment = 1
 
 [node name="Jouer" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 450.0
-offset_top = 200.0
-offset_right = 700.0
-offset_bottom = 280.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.499
+anchor_top = 0.30900002
+anchor_right = 0.499
+anchor_bottom = 0.30900002
+offset_left = -124.84802
+offset_top = -0.23200989
+offset_right = 125.15198
+offset_bottom = 79.76799
 theme = SubResource("Theme_t0lv0")
 theme_override_font_sizes/font_size = 52
 text = "Jouer"
 script = ExtResource("3_t0lv0")
 
 [node name="Quit" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 450.0
-offset_top = 350.0
-offset_right = 700.0
-offset_bottom = 430.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.499
+anchor_top = 0.54
+anchor_right = 0.499
+anchor_bottom = 0.54
+offset_left = -124.84802
+offset_top = 0.07998657
+offset_right = 125.15198
+offset_bottom = 80.07999
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme = SubResource("Theme_gjgbf")

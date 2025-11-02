@@ -26,7 +26,7 @@ func afficher_resume():
 		resume_label.vertical_alignment=1
 		print("numday : "+str(Global.numDay))
 		if(Global.numDay==1):
-			resume_label.text = "Bienvenue !\n\nDans ce jeu, vous incarnerez un étudiant de la faculté des sciences de Montpellier.\nVotre but sera de réussir vos examens en suivant vos cours durant trois semaines !\nVous aurez à gérer en même temps votre santé et votre vie sociale tout en faisant attention à votre argent !\nBonne chance dans cette aventure !"
+			resume_label.text = "Bienvenue !\n\nDans ce jeu, vous incarnerez un étudiant de la faculté des sciences de Montpellier.\nVotre but sera de réussir vos examens en suivant vos cours durant trois semaines !\nVous aurez à gérer en même temps votre santé et votre vie sociale tout en faisant attention à votre argent !\nEt c'est ici grâce à cet ordinateur que vous allez organiser vos journées, appuyer sur start quand vous aurez fini !\nBonne chance dans cette aventure !"
 		elif(Global.Statistiques["Santé"]<50):
 			resume_label.text = "Bonjour !!\n La journée d'hier fut longue, votre état a beaucoup changé !! \n Voici un résumé de vos statistiques : \n Santé : "+ str(Global.Statistiques["Santé"])+"\n\n Argent : "+ str(Global.Statistiques["Argent"])+"\n\n Vous ne semblez pas très en forme..."
 		elif(Global.Statistiques["Social"]<30):
@@ -152,6 +152,8 @@ func afficher_planning():
 				print(creneau_text, " ", Global.choixMatin, " ", Global.choixAprem, " ", Global.choixSoir)
 				var btn = MenuButton.new()
 				btn.add_theme_color_override("font_color", Color.BLACK)
+				#btn.add_theme_color_override("font_color_hover", Color.WEB_PURPLE)
+				print(btn.get_theme_color("font_color_hover"))
 				if(i ==0):
 					if(Global.choixMatin == -1):
 						btn.text = creneau_text
@@ -179,6 +181,9 @@ func afficher_planning():
 						Global.choixAprem = index
 					else :
 						Global.choixSoir = index
+					if(Global.ChoixES != {} and Global.choixMatin != -1 and Global.choixAprem != -1 and Global.choixSoir !=-1) :
+						Global.animValide=$AnimationPlayer
+						$AnimationPlayer.play("anim_valide")
 				)
 				vbox.add_child(btn)
 			else :

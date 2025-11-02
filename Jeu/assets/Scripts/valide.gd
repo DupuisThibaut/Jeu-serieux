@@ -5,16 +5,17 @@ func _ready():
 	
 func _pressed():
 	if(Global.ChoixES != {} and Global.choixMatin != -1 and Global.choixAprem != -1 and Global.choixSoir !=-1) :
+		Global.animValide.stop()
 		_newDay()
 		await get_tree().create_timer(0.8).timeout
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		Global.viseur.visible=true
 		Global.mangeAjd=false
 		Global.doucheAjd=false
-		get_tree().get_root().get_node("/root/Scene/HBoxContainer/Label_Day").change()
-		get_tree().get_root().get_node("/root/Scene/HBoxContainer/Label_Money").change()
-		get_tree().get_root().get_node("/root/Scene/Social/ProgressBar_Social").change()
-		get_tree().get_root().get_node("/root/Scene/Santé/ProgressBar_Santé").change()
+		get_tree().get_root().get_node("/root/Scene/HUD/HBoxContainer/Label_Day").change()
+		get_tree().get_root().get_node("/root/Scene/HUD/HBoxContainer/Label_Money").change()
+		get_tree().get_root().get_node("/root/Scene/HUD/Social/ProgressBar_Social").change()
+		get_tree().get_root().get_node("/root/Scene/HUD/Santé/ProgressBar_Santé").change()
 		Global.Statistiques["Santé"] = min(100,Global.Statistiques["Santé"])
 		Global.Statistiques["Social"] = min(100,Global.Statistiques["Social"])
 		Global.Statistiques["Note"] = min(20, Global.Statistiques["Note"])
@@ -22,6 +23,7 @@ func _pressed():
 			SceneTransition.change_scene("res://assets/Scenes/End.tscn",1)
 		else :
 			SceneTransition.change_scene("res://assets/Scenes/MainScene.tscn",2)
+		Global.ChoixES = {"Créneau": [],"Conséquences":{}}
 
 func assign_event_type(type:int):
 	var candidats = []	

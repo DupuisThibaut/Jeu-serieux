@@ -23,6 +23,7 @@ func _pressed():
 			if(creneau_text not in Global.ES[Global.ESinWeek[Global.numDayWeek]]["Créneau"]) :
 				print(creneau_text, " ", Global.choixMatin, " ", Global.choixAprem, " ", Global.choixSoir)
 				var btn = MenuButton.new()
+				btn.add_theme_color_override("font_color_hover",Color.WEB_PURPLE)
 				if(i ==0):
 					if(Global.choixMatin == -1):
 						btn.text = creneau_text

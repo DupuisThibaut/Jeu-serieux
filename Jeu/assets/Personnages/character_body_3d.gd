@@ -52,6 +52,8 @@ func _input(event):
 		result = space_state.intersect_ray(query)
 		testBureau=false
 		testPorteSDB=false
+		testDouche=false
+		testManger=false
 		Global.interaction.visible=false
 		if result:
 			if(result["collider"].get_children()[0].name=="BureauHaut" || result["collider"].get_parent().get_parent().name=="Ordinateur"):

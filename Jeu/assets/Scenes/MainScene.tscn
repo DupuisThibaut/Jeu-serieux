@@ -319,24 +319,6 @@ albedo_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2g5cg"]
 albedo_color = Color(0.13333334, 0.13333334, 0.13333334, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv7ag"]
-bg_color = Color(0.6, 0.6, 0.6, 0.49019608)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smnvw"]
-bg_color = Color(0, 0.33155626, 0.60244274, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="Theme" id="Theme_smnvw"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_lv7ag")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_smnvw")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4kyt"]
 bg_color = Color(0.6, 0.6, 0.6, 0.49019608)
 corner_radius_top_left = 10
@@ -354,6 +336,24 @@ corner_radius_bottom_left = 10
 [sub_resource type="Theme" id="Theme_57rnh"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_p4kyt")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_fx8xi")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv7ag"]
+bg_color = Color(0.6, 0.6, 0.6, 0.49019608)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smnvw"]
+bg_color = Color(0, 0.33155626, 0.60244274, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_smnvw"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_lv7ag")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_smnvw")
 
 [node name="Scene" type="Node3D"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -903,25 +903,6 @@ transform = Transform3D(1000000, 0, 0, 0, 5000, 0, 0, 0, 1000, 0, -0.1, 0)
 material_override = SubResource("StandardMaterial3D_62gv7")
 mesh = SubResource("PlaneMesh_a0tk4")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 864.0
-offset_top = 14.0
-offset_right = 1132.0
-offset_bottom = 54.0
-theme_override_constants/separation = 50
-
-[node name="Label_Money" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-text = "Argent : 150 €"
-script = ExtResource("7_eofks")
-
-[node name="Label_Day" type="Label" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-text = "Lundi (Jour 5)"
-script = ExtResource("9_t8tbl")
-
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 anchors_preset = 15
@@ -1040,41 +1021,26 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2g5cg")
 [node name="CameraOrdi" type="Camera3D" parent="."]
 transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -0.74524736, 0.46343458, -0.14651504)
 
-[node name="Social" type="Control" parent="."]
+[node name="HUD" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 951.0
-offset_top = 58.0
-offset_right = 991.0
-offset_bottom = 98.0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1152.0
+offset_right = -1112.0
+offset_bottom = 40.0
 
-[node name="ProgressBar_Social" type="ProgressBar" parent="Social"]
-layout_mode = 0
-offset_right = 180.0
-offset_bottom = 27.0
-size_flags_vertical = 1
-tooltip_text = "Social"
-theme = SubResource("Theme_smnvw")
-show_percentage = false
-script = ExtResource("8_klm8p")
-
-[node name="Label" type="Label" parent="Social"]
-layout_mode = 0
-offset_left = 65.0
-offset_top = 2.0
-offset_right = 114.0
-offset_bottom = 25.0
-text = "Social "
-
-[node name="Santé" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 951.0
+[node name="Santé" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 911.0
 offset_top = 100.0
-offset_right = 991.0
+offset_right = 951.0
 offset_bottom = 140.0
+grow_horizontal = 0
 
-[node name="ProgressBar_Santé" type="ProgressBar" parent="Santé"]
+[node name="ProgressBar_Santé" type="ProgressBar" parent="HUD/Santé"]
 layout_mode = 0
 offset_right = 180.0
 offset_bottom = 27.0
@@ -1084,10 +1050,61 @@ theme = SubResource("Theme_57rnh")
 show_percentage = false
 script = ExtResource("16_smnvw")
 
-[node name="Label" type="Label" parent="Santé"]
+[node name="Label" type="Label" parent="HUD/Santé"]
 layout_mode = 0
 offset_left = 65.0
 offset_top = 2.0
 offset_right = 114.0
 offset_bottom = 25.0
 text = "Santé"
+
+[node name="Social" type="Control" parent="HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 911.0
+offset_top = 58.0
+offset_right = 951.0
+offset_bottom = 98.0
+
+[node name="ProgressBar_Social" type="ProgressBar" parent="HUD/Social"]
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 27.0
+size_flags_vertical = 1
+tooltip_text = "Social"
+theme = SubResource("Theme_smnvw")
+show_percentage = false
+script = ExtResource("8_klm8p")
+
+[node name="Label" type="Label" parent="HUD/Social"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 2.0
+offset_right = 114.0
+offset_bottom = 25.0
+text = "Social "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 824.0
+offset_top = 14.0
+offset_right = 1092.0
+offset_bottom = 54.0
+theme_override_constants/separation = 50
+
+[node name="Label_Money" type="Label" parent="HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Argent : 150 €"
+script = ExtResource("7_eofks")
+
+[node name="Label_Day" type="Label" parent="HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Lundi (Jour 5)"
+script = ExtResource("9_t8tbl")

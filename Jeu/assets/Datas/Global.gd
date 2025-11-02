@@ -120,7 +120,7 @@ var ES = [
 	},
 
 	{ "name": "Participer à un groupe de révision", "Catégorie": ["Note", "Social"], "Description": "Un groupe de révision est organisé aujourd’hui, devrais-je y aller ?", 
-	  "Oui": {"Description": "Je participe au groupe", "Conséquences": {"Note": 0.6, "Social": 5},"Créneau": ["Créneau du matin", "Créneau de l'après-midi"]}, 
+	  "Oui": {"Description": "Je participe au groupe", "Conséquences": {"Note": 1.5, "Social": 5},"Créneau": ["Créneau du matin", "Créneau de l'après-midi"]}, 
 	  "Non": {"Description": "Je n’y vais pas", "Conséquences": {"Note": -0.1, "Social": -5},"Créneau": []},
 	  "type" : 0
 	},

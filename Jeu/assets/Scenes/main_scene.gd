@@ -6,4 +6,5 @@ func _ready() -> void:
 	$Maison/Cuisine/Viande.visible=Global.viande
 	$Maison/Cuisine/Tomate.visible=Global.tomate
 	$Maison/Cuisine/Salade.visible=Global.salade
-	Global.hud=$HUD
+	if Global.hud:
+		$HUD.visible=true

@@ -1,2 +1,8 @@
 res://assets/Scenes/MainScene.tscn
 res://assets/shaders/health.gdshader
+res://assets/Personnages/character_body_3d.tscn
+res://assets/Scenes/scene_transition.gd
+res://assets/Personnages/character_body_3d.gd
+res://assets/Scenes/main_scene.gd
+res://assets/Scripts/start.gd
+res://assets/Datas/Global.gd

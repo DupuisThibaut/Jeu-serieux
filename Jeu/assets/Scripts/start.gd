@@ -10,9 +10,9 @@ func _gui_input(event: InputEvent) -> void:
 			#print("i")
 			#SceneTransition.change_scene("res://assets/Scenes/MainScene.tscn",1)
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			Global.hud=true
 			SceneTransition.new()
 			await get_tree().create_timer(0.6).timeout
-			Global.hud.visible=true
 			Global.viseur.visible=true
 			Global.cam()
 			print("test")

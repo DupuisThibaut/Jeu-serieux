@@ -31,6 +31,7 @@ func _ready():
 	Global.quitter=get_node("Quitter")
 	Global.quitter.visible=true
 	Global.cameraPerso=$Camera3D
+	print("oooooooooooooooo")
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	#var viseur=get_node("Viseur")
 	#viseur.visible=true

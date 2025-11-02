@@ -58,7 +58,7 @@ var salade=true
 
 var animValide
 
-var hud
+var hud=false
 
 signal changementScene()
 func _on_changement_scene():

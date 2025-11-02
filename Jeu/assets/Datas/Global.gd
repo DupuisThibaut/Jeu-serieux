@@ -13,7 +13,7 @@ var choixSoir = -1
 var Statistiques = {
 	"Note" : 0,
 	"Social" : 50,
-	"Santé" : 100,
+	"Santé" : 1,
 	"Argent" : 150
 }
 

@@ -13,6 +13,11 @@ func _input(event):
 				start=false
 				get_tree().change_scene_to_file("res://assets/Scenes/MainScene.tscn")
 				$anim_transition.play(anim_name("close",3))
+				if $health.visible == false:
+					$health.visible = true
+					var h = clamp(Global.Statistiques["Santé"], 0, 100)
+					$health.material.set_shader_parameter("health", h)
+					$health.material.set_shader_parameter("blur_strength", (1.0-(h/100.0)))
 			
 func new():
 	$Start.visible=true

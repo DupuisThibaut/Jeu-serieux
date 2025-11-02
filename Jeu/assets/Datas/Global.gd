@@ -13,7 +13,7 @@ var choixSoir = -1
 var Statistiques = {
 	"Note" : 0,
 	"Social" : 50,
-	"Santé" : 1,
+	"Santé" : 100,
 	"Argent" : 150
 }
 
@@ -65,8 +65,8 @@ func _on_changement_scene():
 	print("i")
 
 var ES = [
-	{ "name" : "Faire des courses","Catégorie" : ["Santé","Argent"],"Description" : "Le frigo est vide, il faut que j'aille faire des courses aujourd'hui.",
-	  "Oui" : {"Description" : "Aller faire les courses", "Conséquences": {"Argent" : -30, "Santé" : 10}, "name": "Courses","Créneau" : ["Créneau du matin"]}, 
+	{ "name" : "Faire des courses","Catégorie" : ["Argent"],"Description" : "Le frigo est vide, il faut que j'aille faire des courses aujourd'hui.",
+	  "Oui" : {"Description" : "Aller faire les courses", "Conséquences": {"Argent" : -30}, "name": "Courses","Créneau" : ["Créneau du matin"]}, 
 	  "Non" : {"Description" : "On verra plus tard", "Conséquences" : {"Santé" : -10},"Créneau" : []},
 	  "type" : 2
 	},
@@ -84,7 +84,7 @@ var ES = [
 	},
 	
 	{ "name" : "Malade", "Catégorie" : ["Santé"], "Description": "Je suis malade, j'aurais dû faire plus attention à ma santé...", 
-	  "Oui": {"Description": "Je devrais rester chez moi et me reposer", "Conséquences":{"Santé" : 20},"Créneau" : ["Créneau du matin", "Créneau de l'après-midi"]}, 
+	  "Oui": {"Description": "Je devrais rester chez moi et me reposer", "Conséquences":{"Santé" : 10},"Créneau" : ["Créneau du matin", "Créneau de l'après-midi"]}, 
 	  "Non" : {"Description" : "Il faut que j'aille travailler", "Conséquences" : {"Note" : 0.2, "Santé" : -20},"Créneau" : ["Créneau du matin", "Créneau de l'après-midi"]},
 	  "type" : 0
 	},
@@ -96,13 +96,13 @@ var ES = [
 	},
 	
 	{ "name": "Aller courir", "Catégorie": ["Santé"], "Description": "Une petite course ? Ça fait longtemps, c’est l’occasion pour rester en forme.", 
-	  "Oui": {"Description": "Je pars courir", "Conséquences": {"Santé": 15},"Créneau": ["Créneau du soir"]}, 
+	  "Oui": {"Description": "Je pars courir", "Conséquences": {"Santé": 10},"Créneau": ["Créneau du soir"]}, 
 	  "Non": {"Description": "Je reste chez moi", "Conséquences": {"Santé": -10},"Créneau": []},
 	  "type" : 0
 	},
 
 	{ "name": "Visite chez le médecin", "Catégorie": ["Santé", "Argent"], "Description": "J’ai une visite médicale de prévu, devrais-je y aller ?", 
-	  "Oui": {"Description": "Je vais chez le médecin", "Conséquences": {"Santé": 20, "Argent": -20},"Créneau": ["Créneau de l'après-midi"]}, 
+	  "Oui": {"Description": "Je vais chez le médecin", "Conséquences": {"Santé": 10, "Argent": -20},"Créneau": ["Créneau de l'après-midi"]}, 
 	  "Non": {"Description": "J’ignore le malaise", "Conséquences": {"Santé": -20},"Créneau": []},
 	  "type" : 0
 	},
@@ -114,7 +114,7 @@ var ES = [
 	},
 
 	{ "name": "Aller au Restaurant", "Catégorie": ["Argent", "Santé"], "Description": "On m'a proposé d'aller au restaurant ce soir, j'y vais ou pas ?", 
-	  "Oui": {"Description": "Je vais au restaurant", "Conséquences": {"Argent": -15, "Santé": 5, "Social": 5},"Créneau": ["Créneau du soir"]}, 
+	  "Oui": {"Description": "Je vais au restaurant", "Conséquences": {"Argent": -15, "Santé": 2, "Social": 5},"Créneau": ["Créneau du soir"]}, 
 	  "Non": {"Description": "Je mange chez moi", "Conséquences": {},"Créneau": []},
 	  "type" : 0
 	},

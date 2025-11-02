@@ -19,7 +19,7 @@ func _pressed():
 		Global.Statistiques["Santé"] = min(100,Global.Statistiques["Santé"])
 		Global.Statistiques["Social"] = min(100,Global.Statistiques["Social"])
 		Global.Statistiques["Note"] = min(20, Global.Statistiques["Note"])
-		if Global.numDay >= 0 :
+		if Global.numDay >= 16 :
 			SceneTransition.change_scene("res://assets/Scenes/End2.tscn",1)
 		else :
 			SceneTransition.change_scene("res://assets/Scenes/MainScene.tscn",2)
@@ -42,10 +42,11 @@ func _newDay():
 	var tab = ["Note","Social","Santé"]
 	var Sante_multiplier = (2.0 - Global.Statistiques["Social"]/100.0)
 	var Note_multiplier = Global.Statistiques["Santé"]/100.0
-	var tab2 = [1.0*Note_multiplier,5,5.0]
+	var tab2 = [0.6*Note_multiplier,5,5.0]
 	#Global.Statistiques["Santé"] -= 10 * Sante_multiplier
-	print("La santé : " + str(-10.0*Sante_multiplier))
-	Global.changerStat("Santé",-10.0*Sante_multiplier)
+	print("La santé : " + str(-9.0*Sante_multiplier))
+	Global.changerStat("Santé",-9.0*Sante_multiplier)
+	Global.changerStat("Social",-5.0)
 	if(Global.choixMatin not in [4,5]) :
 		Global.Statistiques[tab[Global.choixMatin]] +=tab2[Global.choixMatin]
 	if(Global.choixAprem not in [4,5]) :

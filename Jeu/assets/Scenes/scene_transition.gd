@@ -45,10 +45,12 @@ func change_scene(newScene, transitionType):
 	await $anim_transition.animation_finished
 	get_tree().change_scene_to_file(newScene)
 	$anim_transition.play(anim_name("close",transitionType))
-	$health.visible = true
-	var h = clamp(Global.Statistiques["Santé"], 0, 100)
-	$health.material.set_shader_parameter("health", h)
-	$health.material.set_shader_parameter("blur_strength", (1.0-(h/100.0)))
+	if (newScene != "res://assets/Scenes/End2.tscn"):
+		$health.visible = true
+		var h = clamp(Global.Statistiques["Santé"], 0, 100)
+		$health.material.set_shader_parameter("health", h)
+		$health.material.set_shader_parameter("blur_strength", (1.0-(h/100.0)))
+	else : $health.visible = false
 	$Jour.visible=false
 
 func change_camera(camera, transitionType):

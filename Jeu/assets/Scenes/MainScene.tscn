@@ -1029,6 +1029,7 @@ anchor_right = 1.0
 offset_left = -1152.0
 offset_right = -1112.0
 offset_bottom = 40.0
+grow_horizontal = 0
 
 [node name="Santé" type="Control" parent="HUD"]
 layout_mode = 1

@@ -21,12 +21,18 @@ func changerStat(stat,nb):
 	if stat=="Note":
 		if Statistiques["Note"]+nb>20:
 			Statistiques["Note"]=20
+		else :
+			Statistiques["Note"]+=nb
 	if stat=="Social":
 		if Statistiques["Social"]+nb>100:
 			Statistiques["Social"]=100
+		else :
+			Statistiques["Social"]+=nb
 	if stat=="Santé":
 		if Statistiques["Santé"]+nb>100:
 			Statistiques["Santé"]=100
+		else :
+			Statistiques["Santé"]+=nb
 
 var ChoixES = {}
 
@@ -147,21 +153,22 @@ var ES = [
 	]
 
 func generate_ES_week():
-	ESinWeek = []
-	randomize()	
-	if(numDay < 4):
+	Global.ESinWeek = []
+	randomize()
+	if Global.numDay < 4:
 		var tmp = []
-		for i in ES:
-			if(i["type"]==0):
-				tmp.add(i)
+		for i in range(Global.ES.size()):
+			if Global.ES[i]["type"] == 0:
+				tmp.append(i)
 		tmp.shuffle()
-		ESinWeek = tmp.slice(0, 5)
-	else :
+		Global.ESinWeek = tmp.slice(0, 5)
+	else:
 		var candidats = []
-		for i in ES:
-			if i["type"] in [0, 1]:
+		for i in range(Global.ES.size()):
+			if Global.ES[i]["type"] in [0, 1]:
 				candidats.append(i)
 		if candidats.size() > 0:
-			var ajout = candidats[randi() % candidats.size()]
-			ESinWeek.append(ajout)		
+			candidats.shuffle()
+			Global.ESinWeek = candidats.slice(0,5)
+	
 var ESinWeek := [2,5,7,9,11]

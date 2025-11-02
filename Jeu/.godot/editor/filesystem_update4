@@ -1,5 +1,7 @@
 res://assets/Personnages/character_body_3d.tscn
 res://assets/shaders/health.gdshader
+res://assets/Scripts/toggle_pages.gd
 res://assets/Scripts/valide.gd
 res://assets/Datas/Global.gd
-res://assets/Scripts/toggle_pages.gd
+res://assets/Scenes/scene_transition.tscn
+res://assets/Scripts/resume.gd

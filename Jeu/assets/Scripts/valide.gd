@@ -18,7 +18,7 @@ func _pressed():
 		Global.Statistiques["Santé"] = min(100,Global.Statistiques["Santé"])
 		Global.Statistiques["Social"] = min(100,Global.Statistiques["Social"])
 		Global.Statistiques["Note"] = min(20, Global.Statistiques["Note"])
-		if Global.numDay >= 30 :
+		if Global.numDay >= 15 :
 			SceneTransition.change_scene("res://assets/Scenes/End.tscn",1)
 		else :
 			SceneTransition.change_scene("res://assets/Scenes/MainScene.tscn",2)
@@ -42,6 +42,7 @@ func _newDay():
 	var Note_multiplier = Global.Statistiques["Santé"]/100.0
 	var tab2 = [0.1*Note_multiplier,5,5.0]
 	#Global.Statistiques["Santé"] -= 10 * Sante_multiplier
+	print("La santé : " + str(-10.0*Sante_multiplier))
 	Global.changerStat("Santé",-10.0*Sante_multiplier)
 	if(Global.choixMatin not in [4,5]) :
 		Global.Statistiques[tab[Global.choixMatin]] +=tab2[Global.choixMatin]
@@ -74,11 +75,12 @@ func _newDay():
 		if(Global.ChoixES["Conséquences"].has("Argent")) :
 			Global.Statistiques["Argent"] += Global.ChoixES["Conséquences"]["Argent"]
 	Global.numDayWeek = (Global.numDayWeek + 1)%5
-	if(Global.patate==false and Global.viande == false and Global.steak==false and Global.tomate==false and Global.salade==false):
-		Global.ESinWeek[Global.numDayWeek] = assign_event_type(2)
-	elif(Global.Statistiques["Argent"]<20):
-		Global.ESinWeek[Global.numDayWeek] = assign_event_type(3)
 	if(Global.numDayWeek == 0):
 		Global.generate_ES_week()
+	if(Global.patate==false and Global.viande == false and Global.steak==false and Global.tomate==false and Global.salade==false):
+		assign_event_type(2)
+	elif(Global.Statistiques["Argent"]<20):
+		assign_event_type(3)
+
 		
 	

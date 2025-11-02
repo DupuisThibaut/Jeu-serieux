@@ -24,7 +24,10 @@ func afficher_resume():
 		var resume_label = Label.new()
 		resume_label.horizontal_alignment=1
 		resume_label.vertical_alignment=1
-		if(Global.Statistiques["Santé"]<50):
+		print("numday : "+str(Global.numDay))
+		if(Global.numDay==1):
+			resume_label.text = "Bienvenue !\n\nDans ce jeu, vous incarnerez un étudiant de la faculté des sciences de Montpellier.\nVotre but sera de réussir vos examens en suivant vos cours durant trois semaines !\nVous aurez à gérer en même temps votre santé et votre vie sociale tout en faisant attention à votre argent !\nBonne chance dans cette aventure !"
+		elif(Global.Statistiques["Santé"]<50):
 			resume_label.text = "Bonjour !!\n La journée d'hier fut longue, votre état a beaucoup changé !! \n Voici un résumé de vos statistiques : \n Santé : "+ str(Global.Statistiques["Santé"])+"\n\n Argent : "+ str(Global.Statistiques["Argent"])+"\n\n Vous ne semblez pas très en forme..."
 		elif(Global.Statistiques["Social"]<30):
 			resume_label.text = "Bonjour !!\n La journée d'hier fut longue, votre état a beaucoup changé !! \n Voici un résumé de vos statistiques : \n Santé : "+ str(Global.Statistiques["Santé"])+"\n\n Argent : "+ str(Global.Statistiques["Argent"])+"\n\n Cela fait longtemps que vous n'avez pas vu vos amis..."
@@ -54,6 +57,7 @@ func build_consequences_text(cons_dict: Dictionary) -> String:
 
 func afficher_evenements():
 	if contenu_page :
+		print(Global.ESinWeek)
 		var es = Global.ES[Global.ESinWeek[Global.numDayWeek]]
 		print(es)
 		print("yeepi")
@@ -95,10 +99,13 @@ func afficher_evenements():
 			Global.ChoixES = es["Oui"]
 			if("Créneau du matin" in Global.ChoixES["Créneau"]):
 				Global.choixMatin = 4
+			else : Global.choixMatin = -1
 			if("Créneau de l'après-midi" in Global.ChoixES["Créneau"]):
 				Global.choixAprem = 4
+			else : Global.choixAprem = -1
 			if("Créneau du soir" in Global.ChoixES["Créneau"]):
-				Global.choixSoir = 4		
+				Global.choixSoir = 4	
+			else : Global.choixSoir = -1		
 		)
 		hbox.add_child(btnOui)
 		var btnNon = Button.new()
@@ -112,10 +119,13 @@ func afficher_evenements():
 			Global.ChoixES = es["Non"]
 			if("Créneau du matin" in Global.ChoixES["Créneau"]):
 				Global.choixMatin = 5
+			else : Global.choixMatin = -1
 			if("Créneau de l'après-midi" in Global.ChoixES["Créneau"]):
 				Global.choixAprem = 5
+			else : Global.choixAprem = -1
 			if("Créneau du soir" in Global.ChoixES["Créneau"]):
-				Global.choixSoir = 5	
+				Global.choixSoir = 5
+			else : Global.choixSoir = -1	
 		)
 		hbox.add_child(btnNon)
 		vbox.add_child(hbox)
@@ -138,7 +148,7 @@ func afficher_planning():
 		vbox.add_child(resume_label)
 		var i = 0
 		for creneau_text in creneaux.keys():
-			if(creneau_text not in Global.ES[Global.ESinWeek[Global.numDayWeek]]["Créneau"]) :
+			if(creneau_text not in Global.ChoixES["Créneau"]) :
 				print(creneau_text, " ", Global.choixMatin, " ", Global.choixAprem, " ", Global.choixSoir)
 				var btn = MenuButton.new()
 				btn.add_theme_color_override("font_color", Color.BLACK)
